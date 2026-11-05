@@ -1,0 +1,32 @@
+{
+ "palette": {
+  "dark": {
+   "bg": "#17181A",
+   "surface": "#1E1F22",
+   "ink": "#EDE4D4",
+   "muted": "#A29682",
+   "accent": "#C8832A",
+   "accent2": "#E0A24B",
+   "name": "charcoal"
+  },
+  "light": {
+   "bg": "#F5F1E8",
+   "surface": "#FFFFFF",
+   "ink": "#1A1917",
+   "muted": "#6F6656",
+   "accent": "#A9661E",
+   "accent2": "#C8832A",
+   "name": "paper"
+  }
+ },
+ "variants": [
+  "lockup-amber-cream",
+  "lockup-cream",
+  "lockup-mono-black",
+  "lockup-light",
+  "mark-amber",
+  "mark-cream",
+  "mark-light",
+  "mark-black"
+ ]
+}

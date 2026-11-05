@@ -1,0 +1,183 @@
+{
+ "product": "MONAD",
+ "phase": "1.1",
+ "version": "1.0.0",
+ "locked": "2026-11-05",
+ "sources": {
+  "mark": "measured geometry from owner artwork (apex y216, base y329, 132x113, 5 levels)",
+  "wordmark": "Inter variable weight 620, tracking .055em, outlines",
+  "colour": "Phase 1.1 spec palette"
+ },
+ "superseded": [
+  "brand v1 (violet/concentric arcs)",
+  "brand v2 (vivid orange + MonadWave sub-brand)",
+  "brand v3 draft"
+ ],
+ "files": [
+  {
+   "path": "MONAD-brand-sheet.png",
+   "bytes": 222264,
+   "sha256": "6ef4537d4f6a10c2"
+  },
+  {
+   "path": "assets/_mark-optical.svg",
+   "bytes": 2811,
+   "sha256": "e53a4a602cf5101b"
+  },
+  {
+   "path": "assets/_mark-precise.svg",
+   "bytes": 2556,
+   "sha256": "3e5f88ce93b1b2a3"
+  },
+  {
+   "path": "assets/favicon.ico",
+   "bytes": 6549,
+   "sha256": "03cdb4d0ac2fbaa7"
+  },
+  {
+   "path": "assets/mark-dark.svg",
+   "bytes": 1552,
+   "sha256": "e0efe3970d907510"
+  },
+  {
+   "path": "assets/mark-light.svg",
+   "bytes": 1552,
+   "sha256": "a567cb6b0a047096"
+  },
+  {
+   "path": "assets/mark-mono-cream.svg",
+   "bytes": 1552,
+   "sha256": "80ac914a7c1ee1d7"
+  },
+  {
+   "path": "assets/mark-mono-ink.svg",
+   "bytes": 1552,
+   "sha256": "d8083a28b2851f7f"
+  },
+  {
+   "path": "assets/monad-lockup-compact-dark.svg",
+   "bytes": 7740,
+   "sha256": "a9eb669d03156a38"
+  },
+  {
+   "path": "assets/monad-lockup-compact-light.svg",
+   "bytes": 7740,
+   "sha256": "8e3f4e9a333018f7"
+  },
+  {
+   "path": "assets/monad-lockup-horizontal-dark.svg",
+   "bytes": 7738,
+   "sha256": "dee9ead8951ec6f8"
+  },
+  {
+   "path": "assets/monad-lockup-horizontal-light.svg",
+   "bytes": 7738,
+   "sha256": "0c85939ca280b897"
+  },
+  {
+   "path": "assets/monad-lockup-horizontal-mono-cream.svg",
+   "bytes": 7791,
+   "sha256": "3063e74bd4d1a4f1"
+  },
+  {
+   "path": "assets/monad-lockup-horizontal-mono-ink.svg",
+   "bytes": 7791,
+   "sha256": "4672a1fe01dd60e0"
+  },
+  {
+   "path": "assets/monad-mark-dark-bg.svg",
+   "bytes": 2531,
+   "sha256": "6b96c6a5596049c7"
+  },
+  {
+   "path": "assets/monad-wordmark-dark.svg",
+   "bytes": 6177,
+   "sha256": "c9d5b5e11f759b22"
+  },
+  {
+   "path": "assets/monad-wordmark-light.svg",
+   "bytes": 6177,
+   "sha256": "1714f45dc8194999"
+  },
+  {
+   "path": "assets/tokens.css",
+   "bytes": 1268,
+   "sha256": "c8a3410744b8b0bd"
+  },
+  {
+   "path": "assets/tokens.json",
+   "bytes": 2080,
+   "sha256": "667dd60dc991390b"
+  },
+  {
+   "path": "contrast-audit.json",
+   "bytes": 1055,
+   "sha256": "10b897badf8a3f9a"
+  },
+  {
+   "path": "raster/apple-touch-icon-180.png",
+   "bytes": 6896,
+   "sha256": "71cfd51e06f5a3e1"
+  },
+  {
+   "path": "raster/favicon-64.png",
+   "bytes": 2350,
+   "sha256": "b900e52a694e974c"
+  },
+  {
+   "path": "raster/icon-192-maskable.png",
+   "bytes": 5449,
+   "sha256": "05c6355325f8dc7e"
+  },
+  {
+   "path": "raster/icon-192.png",
+   "bytes": 7434,
+   "sha256": "0f318ef13239cae7"
+  },
+  {
+   "path": "raster/icon-512-maskable.png",
+   "bytes": 18530,
+   "sha256": "5c22cf8088ade1f2"
+  },
+  {
+   "path": "raster/icon-512.png",
+   "bytes": 25731,
+   "sha256": "e786a942a7a76d8b"
+  },
+  {
+   "path": "raster/lockup-compact-dark.png",
+   "bytes": 17943,
+   "sha256": "e5e5a9a3a699393c"
+  },
+  {
+   "path": "raster/lockup-horizontal-dark.png",
+   "bytes": 37600,
+   "sha256": "6aca72402334c1b5"
+  },
+  {
+   "path": "raster/lockup-horizontal-light.png",
+   "bytes": 36481,
+   "sha256": "e9305fab88c9dd68"
+  },
+  {
+   "path": "raster/mark-dark@1024.png",
+   "bytes": 46341,
+   "sha256": "24f0d4276f87c1eb"
+  },
+  {
+   "path": "raster/mark-dark@512.png",
+   "bytes": 43069,
+   "sha256": "fbb363acff0458ef"
+  },
+  {
+   "path": "raster/mark-light@1024.png",
+   "bytes": 46009,
+   "sha256": "855567c33ccf1e9b"
+  },
+  {
+   "path": "raster/wordmark-dark.png",
+   "bytes": 26604,
+   "sha256": "d491ccb2aff930bc"
+  }
+ ]
+}

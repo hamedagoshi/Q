@@ -1,0 +1,6 @@
+--- anonymous entity API probes ---
+GET /entities/DailyRecord -> 403
+POST /entities/DailyRecord -> 403
+GET /entities/UserProfile -> 403
+POST /entities/UserProfile -> 403
+GET app.base44.com /entities/DailyRecord -> 403

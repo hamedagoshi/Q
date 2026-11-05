@@ -1,0 +1,108 @@
+<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8">
+<title>MONAD app tests</title>
+<style>body{font:13px/1.6 ui-monospace,monospace;background:#17181A;color:#EDE4D4;margin:0;padding:16px}
+pre{white-space:pre-wrap}iframe{width:390px;height:640px;border:1px solid #333;background:#000}</style>
+</head><body>
+<pre id="out">running…</pre>
+<iframe id="f"></iframe>
+<script>
+const R=[]; const ok=(n,c,note='')=>R.push({n,pass:!!c,note});
+const f=document.getElementById('f');
+const BASE=location.origin;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+function load(path,{theme,lang}={}){
+  return new Promise(res=>{
+    f.onload=()=>setTimeout(res,420);
+    if(theme) try{localStorage.setItem('monad.theme',theme)}catch(e){}
+    f.src=BASE+path+(path.includes('?')?'&':'?')+'test=1';
+  });
+}
+const win=()=>f.contentWindow, doc=()=>f.contentDocument;
+const path=()=>win().location.pathname+win().location.search;
+const q=(s)=>doc().querySelector(s);
+const text=()=>doc().body.innerText;
+
+async function run(){
+  /* 1 anon -> /login */
+  await load('/');
+  ok('anon at "/" redirected to login', path().startsWith('/login'), path());
+
+  /* 2 anon deep link keeps next */
+  await load('/settings');
+  ok('anon deep link keeps next=', path().includes('next=%2Fsettings')||path().includes('next=/settings'), path());
+
+  /* 3 login with test double */
+  const em=q('#email'), pw=q('#password');
+  em.value='a@b.com'; pw.value='password123';
+  q('#auth-form').dispatchEvent(new (win().Event)('submit',{bubbles:true,cancelable:true}));
+  await sleep(600);
+  ok('login succeeds and returns to the requested route', path().startsWith('/settings'), path());
+
+  /* 4 direct navigation while authenticated */
+  await load('/journal');
+  ok('direct /journal renders for a session', path().startsWith('/journal') && text().includes('ژورنال'), path());
+
+  /* 5 session survives reload */
+  await load('/settings');
+  ok('reload on /settings keeps the session', path().startsWith('/settings') && !!q('#profile-form'), path());
+
+  /* 6 guest guard: authenticated at /login */
+  await load('/login');
+  ok('authenticated user not sent back to login', path()==='/' , path());
+
+  /* 7 unknown route */
+  await load('/nope');
+  ok('unknown route shows not-found', text().includes('این صفحه وجود ندارد'), path());
+  ok('not-found still answers on its own URL', path().startsWith('/nope'), path());
+
+  /* 8 design-system lab is a static route, public, no auth */
+  await new Promise(r=>{f.onload=()=>setTimeout(r,400); f.src=BASE+'/design-system/';});
+  ok('/design-system served without auth', text().includes('Component laboratory'), f.contentWindow.location.pathname);
+
+  /* 9 themes */
+  await load('/settings');
+  win().localStorage.setItem('monad-theme','light');
+  await new Promise(r=>{f.onload=()=>setTimeout(r,400); f.src=BASE+'/settings?test=1';});
+  ok('light theme applies', doc().documentElement.getAttribute('data-theme')==='light',
+     doc().documentElement.getAttribute('data-theme'));
+  win().localStorage.setItem('monad-theme','dark');
+  await new Promise(r=>{f.onload=()=>setTimeout(r,400); f.src=BASE+'/settings?test=1';});
+  ok('dark theme applies', doc().documentElement.getAttribute('data-theme')==='dark',
+     doc().documentElement.getAttribute('data-theme'));
+
+  /* 10 direction */
+  ok('persian renders rtl', doc().documentElement.getAttribute('dir')==='rtl',
+     doc().documentElement.getAttribute('dir')+'/'+doc().documentElement.getAttribute('lang'));
+
+  /* 11 overflow at 390 */
+  const de=doc().documentElement;
+  ok('no horizontal overflow at 390px', de.scrollWidth<=de.clientWidth+1,
+     `${de.scrollWidth}/${de.clientWidth}`);
+
+  /* 12 logout */
+  const so=q('#signout');
+  so && so.click(); await sleep(700);
+  ok('logout returns to login', path().startsWith('/login'), path());
+  await load('/settings');
+  ok('after logout protected route redirects', path().startsWith('/login'), path());
+
+  /* 13 signup screen reachable */
+  await load('/signup');
+  ok('signup screen renders', !!q('#auth-form') && text().includes('ساخت حساب'), path());
+  await load('/login');
+  ok('login screen renders', !!q('#auth-form'), path());
+
+  /* 14 no custom password storage in client */
+  ok('no password persisted client-side',
+     !Object.keys(win().localStorage).some(k=>/pass|cred/i.test(k)) &&
+     !JSON.stringify(win().sessionStorage).includes('password123'),
+     Object.keys(win().localStorage).join(','));
+
+  const pass=R.filter(r=>r.pass).length;
+  document.getElementById('out').textContent =
+    R.map(r=>`${r.pass?'PASS':'FAIL'}  ${r.n}${r.note?'  ['+r.note+']':''}`).join('\n')+`\n\nTOTAL ${pass}/${R.length}`;
+  document.title=`APP TESTS ${pass}/${R.length}`;
+}
+run().catch(e=>{document.getElementById('out').textContent='HARNESS ERROR '+e.message+'\n'+e.stack;});
+</script></body></html>

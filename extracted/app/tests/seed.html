@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>seed</title>
+<script>
+/* screenshot helper: seeds the routing-test session for this origin, then navigates.
+   Localhost + ?test=1 only — performs no authentication. */
+const p = new URLSearchParams(location.search);
+sessionStorage.setItem('monad.test.session', JSON.stringify({ user: { id: 'test_owner', email: 'owner@monad.local' } }));
+const to = p.get('to') || '/';
+location.replace(to + (to.includes('?') ? '&' : '?') + 'test=1' + (p.get('theme') ? '&theme=' + p.get('theme') : '') + (p.get('lang') ? '&lang=' + p.get('lang') : ''));
+</script>

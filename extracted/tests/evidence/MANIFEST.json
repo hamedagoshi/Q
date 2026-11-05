@@ -1,0 +1,1126 @@
+{
+ "phase": "1.5+2",
+ "cols": 224,
+ "files": [
+  {
+   "path": "FILES_CHANGED.md",
+   "bytes": 2143,
+   "sha256": "0b29dca05b73ba3e"
+  },
+  {
+   "path": "PHASE_1_5_REPORT.md",
+   "bytes": 5880,
+   "sha256": "a233f0d13aa6c1e3"
+  },
+  {
+   "path": "PHASE_2_REPORT.md",
+   "bytes": 7022,
+   "sha256": "649e51a992bb19c1"
+  },
+  {
+   "path": "app/MANIFEST.json",
+   "bytes": 2987,
+   "sha256": "b98a9cb001f07595"
+  },
+  {
+   "path": "app/REPORT.md",
+   "bytes": 10049,
+   "sha256": "8ad0f513b87c9e54"
+  },
+  {
+   "path": "app/css/app.css",
+   "bytes": 4096,
+   "sha256": "88fc30f0a3d693b8"
+  },
+  {
+   "path": "app/index.html",
+   "bytes": 1185,
+   "sha256": "65d85c5af4689f4d"
+  },
+  {
+   "path": "app/js/api.js",
+   "bytes": 3810,
+   "sha256": "5729dd8c2f4f3719"
+  },
+  {
+   "path": "app/js/app.js",
+   "bytes": 7119,
+   "sha256": "e78eff6e5bb48b4a"
+  },
+  {
+   "path": "app/js/auth.js",
+   "bytes": 3202,
+   "sha256": "1b1e567a104b3015"
+  },
+  {
+   "path": "app/js/fixtures.js",
+   "bytes": 5881,
+   "sha256": "03ee20fb36f89e73"
+  },
+  {
+   "path": "app/js/pages/auth.js",
+   "bytes": 4340,
+   "sha256": "ece8b8a4ea33b72c"
+  },
+  {
+   "path": "app/js/pages/calendar.js",
+   "bytes": 4877,
+   "sha256": "68d8cd38fd4cce1d"
+  },
+  {
+   "path": "app/js/pages/day.js",
+   "bytes": 17542,
+   "sha256": "426835b2afa27416"
+  },
+  {
+   "path": "app/js/pages/home.js",
+   "bytes": 3927,
+   "sha256": "60602fb57618333f"
+  },
+  {
+   "path": "app/js/pages/insights.js",
+   "bytes": 329,
+   "sha256": "e0a754c760e6c2a7"
+  },
+  {
+   "path": "app/js/pages/journal.js",
+   "bytes": 3705,
+   "sha256": "88f6bc96ebf974d1"
+  },
+  {
+   "path": "app/js/pages/notfound.js",
+   "bytes": 488,
+   "sha256": "baa1d8cedbaa5544"
+  },
+  {
+   "path": "app/js/pages/placeholder.js",
+   "bytes": 505,
+   "sha256": "d669655e7c8d4a55"
+  },
+  {
+   "path": "app/js/pages/settings.js",
+   "bytes": 4674,
+   "sha256": "1816fb07b1155f96"
+  },
+  {
+   "path": "app/js/pages/timeline.js",
+   "bytes": 2847,
+   "sha256": "9d45857cf7a2d85b"
+  },
+  {
+   "path": "app/js/pages/trading.js",
+   "bytes": 336,
+   "sha256": "b2b334c5742414e9"
+  },
+  {
+   "path": "app/js/router.js",
+   "bytes": 2725,
+   "sha256": "de64fcb990a9d0da"
+  },
+  {
+   "path": "app/manifest.webmanifest",
+   "bytes": 615,
+   "sha256": "6482d8a001f82eff"
+  },
+  {
+   "path": "app/preview/board-phase13.png",
+   "bytes": 265508,
+   "sha256": "a5648d08e1a710da"
+  },
+  {
+   "path": "app/preview/home-dark-rtl.png",
+   "bytes": 66237,
+   "sha256": "276f7f3fc3659b77"
+  },
+  {
+   "path": "app/preview/login-dark-rtl.png",
+   "bytes": 64533,
+   "sha256": "92c8233a19a34e72"
+  },
+  {
+   "path": "app/preview/notfound-dark-rtl.png",
+   "bytes": 46716,
+   "sha256": "6ebdf49c04a9e4c0"
+  },
+  {
+   "path": "app/preview/settings-dark-rtl.png",
+   "bytes": 72510,
+   "sha256": "3727e4c8a23a1afc"
+  },
+  {
+   "path": "app/preview/settings-light-ltr.png",
+   "bytes": 72766,
+   "sha256": "041672a6f3dd5d81"
+  },
+  {
+   "path": "app/preview/signup-light-ltr.png",
+   "bytes": 67808,
+   "sha256": "4387688fc41fd8d0"
+  },
+  {
+   "path": "app/tests/app-tests.html",
+   "bytes": 4862,
+   "sha256": "845084c602f456f0"
+  },
+  {
+   "path": "app/tests/dbg-obs.html",
+   "bytes": 1662,
+   "sha256": "543eb48476225f2b"
+  },
+  {
+   "path": "app/tests/probe.html",
+   "bytes": 535,
+   "sha256": "628ea8b78be21f06"
+  },
+  {
+   "path": "app/tests/seed.html",
+   "bytes": 595,
+   "sha256": "48c49aaa5e70b644"
+  },
+  {
+   "path": "app/tests/seed3.html",
+   "bytes": 338,
+   "sha256": "9977958573af4c13"
+  },
+  {
+   "path": "app/tests/ui-harness.html",
+   "bytes": 6314,
+   "sha256": "0ce2e3b84c6b0c9f"
+  },
+  {
+   "path": "app/tools_serve.py",
+   "bytes": 1370,
+   "sha256": "adde4650c6fc5c7d"
+  },
+  {
+   "path": "brand/README.md",
+   "bytes": 3708,
+   "sha256": "7ecdbcf8498978ae"
+  },
+  {
+   "path": "brand/build/brand_params.json",
+   "bytes": 2279,
+   "sha256": "342dbf6f977598eb"
+  },
+  {
+   "path": "brand/final/MANIFEST.json",
+   "bytes": 3805,
+   "sha256": "dad56beb438cbf3b"
+  },
+  {
+   "path": "brand/final/MONAD-brand-sheet.png",
+   "bytes": 222264,
+   "sha256": "6ef4537d4f6a10c2"
+  },
+  {
+   "path": "brand/final/assets/_mark-optical.svg",
+   "bytes": 2811,
+   "sha256": "e53a4a602cf5101b"
+  },
+  {
+   "path": "brand/final/assets/_mark-precise.svg",
+   "bytes": 2556,
+   "sha256": "3e5f88ce93b1b2a3"
+  },
+  {
+   "path": "brand/final/assets/favicon.ico",
+   "bytes": 6549,
+   "sha256": "03cdb4d0ac2fbaa7"
+  },
+  {
+   "path": "brand/final/assets/mark-dark.svg",
+   "bytes": 1552,
+   "sha256": "e0efe3970d907510"
+  },
+  {
+   "path": "brand/final/assets/mark-light.svg",
+   "bytes": 1552,
+   "sha256": "a567cb6b0a047096"
+  },
+  {
+   "path": "brand/final/assets/mark-mono-cream.svg",
+   "bytes": 1552,
+   "sha256": "80ac914a7c1ee1d7"
+  },
+  {
+   "path": "brand/final/assets/mark-mono-ink.svg",
+   "bytes": 1552,
+   "sha256": "d8083a28b2851f7f"
+  },
+  {
+   "path": "brand/final/assets/monad-lockup-compact-dark.svg",
+   "bytes": 7740,
+   "sha256": "a9eb669d03156a38"
+  },
+  {
+   "path": "brand/final/assets/monad-lockup-compact-light.svg",
+   "bytes": 7740,
+   "sha256": "8e3f4e9a333018f7"
+  },
+  {
+   "path": "brand/final/assets/monad-lockup-horizontal-dark.svg",
+   "bytes": 7738,
+   "sha256": "dee9ead8951ec6f8"
+  },
+  {
+   "path": "brand/final/assets/monad-lockup-horizontal-light.svg",
+   "bytes": 7738,
+   "sha256": "0c85939ca280b897"
+  },
+  {
+   "path": "brand/final/assets/monad-lockup-horizontal-mono-cream.svg",
+   "bytes": 7791,
+   "sha256": "3063e74bd4d1a4f1"
+  },
+  {
+   "path": "brand/final/assets/monad-lockup-horizontal-mono-ink.svg",
+   "bytes": 7791,
+   "sha256": "4672a1fe01dd60e0"
+  },
+  {
+   "path": "brand/final/assets/monad-mark-dark-bg.svg",
+   "bytes": 2531,
+   "sha256": "6b96c6a5596049c7"
+  },
+  {
+   "path": "brand/final/assets/monad-wordmark-dark.svg",
+   "bytes": 6177,
+   "sha256": "c9d5b5e11f759b22"
+  },
+  {
+   "path": "brand/final/assets/monad-wordmark-light.svg",
+   "bytes": 6177,
+   "sha256": "1714f45dc8194999"
+  },
+  {
+   "path": "brand/final/assets/tokens.css",
+   "bytes": 1268,
+   "sha256": "c8a3410744b8b0bd"
+  },
+  {
+   "path": "brand/final/assets/tokens.json",
+   "bytes": 3662,
+   "sha256": "4e89e85291928f63"
+  },
+  {
+   "path": "brand/final/contrast-audit.json",
+   "bytes": 1055,
+   "sha256": "10b897badf8a3f9a"
+  },
+  {
+   "path": "brand/final/raster/apple-touch-icon-180.png",
+   "bytes": 6896,
+   "sha256": "71cfd51e06f5a3e1"
+  },
+  {
+   "path": "brand/final/raster/favicon-64.png",
+   "bytes": 2350,
+   "sha256": "b900e52a694e974c"
+  },
+  {
+   "path": "brand/final/raster/icon-192-maskable.png",
+   "bytes": 5449,
+   "sha256": "05c6355325f8dc7e"
+  },
+  {
+   "path": "brand/final/raster/icon-192.png",
+   "bytes": 7434,
+   "sha256": "0f318ef13239cae7"
+  },
+  {
+   "path": "brand/final/raster/icon-512-maskable.png",
+   "bytes": 18530,
+   "sha256": "5c22cf8088ade1f2"
+  },
+  {
+   "path": "brand/final/raster/icon-512.png",
+   "bytes": 25731,
+   "sha256": "e786a942a7a76d8b"
+  },
+  {
+   "path": "brand/final/raster/lockup-compact-dark.png",
+   "bytes": 17943,
+   "sha256": "e5e5a9a3a699393c"
+  },
+  {
+   "path": "brand/final/raster/lockup-horizontal-dark.png",
+   "bytes": 37600,
+   "sha256": "6aca72402334c1b5"
+  },
+  {
+   "path": "brand/final/raster/lockup-horizontal-light.png",
+   "bytes": 36481,
+   "sha256": "e9305fab88c9dd68"
+  },
+  {
+   "path": "brand/final/raster/mark-dark@1024.png",
+   "bytes": 46341,
+   "sha256": "24f0d4276f87c1eb"
+  },
+  {
+   "path": "brand/final/raster/mark-dark@512.png",
+   "bytes": 43069,
+   "sha256": "fbb363acff0458ef"
+  },
+  {
+   "path": "brand/final/raster/mark-light@1024.png",
+   "bytes": 46009,
+   "sha256": "855567c33ccf1e9b"
+  },
+  {
+   "path": "brand/final/raster/wordmark-dark.png",
+   "bytes": 26604,
+   "sha256": "d491ccb2aff930bc"
+  },
+  {
+   "path": "brand/final/tools/build_all.py",
+   "bytes": 7129,
+   "sha256": "d9d36d1ec762f39c"
+  },
+  {
+   "path": "brand/final/tools/build_identity.py",
+   "bytes": 7372,
+   "sha256": "a8cb1926ae4d8348"
+  },
+  {
+   "path": "brand/final/tools/finalize_pack.py",
+   "bytes": 7658,
+   "sha256": "ff73243e60d300d0"
+  },
+  {
+   "path": "brand/final/tools/mark_geo.py",
+   "bytes": 2174,
+   "sha256": "c53da573d7f28c5d"
+  },
+  {
+   "path": "brand/final/tools/rasterize.py",
+   "bytes": 3190,
+   "sha256": "d8b2cc8f3e253483"
+  },
+  {
+   "path": "brand/final/tools/wordmark.py",
+   "bytes": 1673,
+   "sha256": "d8f83b64b016550a"
+  },
+  {
+   "path": "brand/fonts/Inter.ttf",
+   "bytes": 876576,
+   "sha256": "29160a80ff49ddca"
+  },
+  {
+   "path": "brand/fonts/Vazirmatn-Bold.ttf",
+   "bytes": 123036,
+   "sha256": "f635fdbea28f265d"
+  },
+  {
+   "path": "brand/fonts/Vazirmatn-Medium.ttf",
+   "bytes": 122656,
+   "sha256": "b986623e4ddef107"
+  },
+  {
+   "path": "brand/fonts/Vazirmatn-Regular.ttf",
+   "bytes": 122752,
+   "sha256": "b69fd4c680b8f3f2"
+  },
+  {
+   "path": "brand/icons/favicon.ico",
+   "bytes": 2361,
+   "sha256": "ff9689d08f366309"
+  },
+  {
+   "path": "brand/icons/favicon.svg",
+   "bytes": 968,
+   "sha256": "ec1f860a78703729"
+  },
+  {
+   "path": "brand/icons/icon-180.png",
+   "bytes": 17765,
+   "sha256": "a90125d979936fe9"
+  },
+  {
+   "path": "brand/icons/icon-192-maskable.png",
+   "bytes": 17478,
+   "sha256": "4f26f2c4488bb75b"
+  },
+  {
+   "path": "brand/icons/icon-192.png",
+   "bytes": 18289,
+   "sha256": "607ac02742c82caa"
+  },
+  {
+   "path": "brand/icons/icon-512-maskable.png",
+   "bytes": 61162,
+   "sha256": "c497cd355d1960c3"
+  },
+  {
+   "path": "brand/icons/icon-512.png",
+   "bytes": 64371,
+   "sha256": "6dcf7a70c19a3223"
+  },
+  {
+   "path": "brand/preview/board-dark.png",
+   "bytes": 144954,
+   "sha256": "43ef28009756135d"
+  },
+  {
+   "path": "brand/preview/board-light.png",
+   "bytes": 135511,
+   "sha256": "64b8e1cc8240be8f"
+  },
+  {
+   "path": "brand/preview/monadwave-brand-sheet-v2.png",
+   "bytes": 267366,
+   "sha256": "234bb0d0f3225136"
+  },
+  {
+   "path": "brand/svg/mark-cream@1024.png",
+   "bytes": 93612,
+   "sha256": "9528111bb541db52"
+  },
+  {
+   "path": "brand/svg/mark-dark@1024.png",
+   "bytes": 123270,
+   "sha256": "dda994048598a692"
+  },
+  {
+   "path": "brand/svg/mark-light@1024.png",
+   "bytes": 100762,
+   "sha256": "6f93edb684e31e8a"
+  },
+  {
+   "path": "brand/svg/mark-mono@1024.png",
+   "bytes": 50137,
+   "sha256": "f6016f2c09a889ae"
+  },
+  {
+   "path": "brand/svg/mark-orange@1024.png",
+   "bytes": 90985,
+   "sha256": "9c3fc90814be298d"
+  },
+  {
+   "path": "brand/svg/monad-lockup-horizontal-dark.svg",
+   "bytes": 1240,
+   "sha256": "ca9606e33362a86f"
+  },
+  {
+   "path": "brand/svg/monad-lockup-horizontal-light.svg",
+   "bytes": 1240,
+   "sha256": "29f5d663bd44b95a"
+  },
+  {
+   "path": "brand/svg/monad-lockup-vertical-dark.svg",
+   "bytes": 1212,
+   "sha256": "565b1a5cc552f662"
+  },
+  {
+   "path": "brand/svg/monad-mark-accent.svg",
+   "bytes": 545,
+   "sha256": "419d0bc404c4ede6"
+  },
+  {
+   "path": "brand/svg/monad-mark-dark.svg",
+   "bytes": 545,
+   "sha256": "deca1a82e8afa330"
+  },
+  {
+   "path": "brand/svg/monad-mark-light.svg",
+   "bytes": 545,
+   "sha256": "52c403ca39ec1486"
+  },
+  {
+   "path": "brand/svg/monad-mark-mono.svg",
+   "bytes": 545,
+   "sha256": "ab05463d7715b996"
+  },
+  {
+   "path": "brand/svg/monad-wordmark-cream.svg",
+   "bytes": 768,
+   "sha256": "35d11eb6c2f716d8"
+  },
+  {
+   "path": "brand/svg/monad-wordmark-dark.svg",
+   "bytes": 768,
+   "sha256": "a424387b0b73597a"
+  },
+  {
+   "path": "brand/svg/monad-wordmark-light.svg",
+   "bytes": 768,
+   "sha256": "5c3715ffa77ad730"
+  },
+  {
+   "path": "brand/svg/monadwave-lockup-horizontal-light.svg",
+   "bytes": 2626,
+   "sha256": "a60f7fdbffe77f0b"
+  },
+  {
+   "path": "brand/svg/monadwave-lockup-horizontal.svg",
+   "bytes": 2626,
+   "sha256": "1b07cd1ebc72825b"
+  },
+  {
+   "path": "brand/svg/monadwave-mark-cream.svg",
+   "bytes": 968,
+   "sha256": "a85c77a09d498637"
+  },
+  {
+   "path": "brand/svg/monadwave-mark-light.svg",
+   "bytes": 968,
+   "sha256": "464c04790c85ae37"
+  },
+  {
+   "path": "brand/svg/monadwave-mark-mono.svg",
+   "bytes": 968,
+   "sha256": "c2365eb0c798722f"
+  },
+  {
+   "path": "brand/svg/monadwave-mark-orange.svg",
+   "bytes": 968,
+   "sha256": "ec1f860a78703729"
+  },
+  {
+   "path": "brand/svg/monadwave-wordmark-cream.svg",
+   "bytes": 1292,
+   "sha256": "70966353345f477f"
+  },
+  {
+   "path": "brand/svg/monadwave-wordmark-orange.svg",
+   "bytes": 1292,
+   "sha256": "b42a7e2725615e6d"
+  },
+  {
+   "path": "brand/tokens/tokens.css",
+   "bytes": 1672,
+   "sha256": "32b9c8fd4772a2d2"
+  },
+  {
+   "path": "brand/tokens/tokens.json",
+   "bytes": 2115,
+   "sha256": "fa7526a0ea12ee39"
+  },
+  {
+   "path": "brand/tools/build_brand.py",
+   "bytes": 13279,
+   "sha256": "9a711ba917bdf7fa"
+  },
+  {
+   "path": "brand/tools/build_brand_v2.py",
+   "bytes": 13877,
+   "sha256": "339f5cfaa3c11251"
+  },
+  {
+   "path": "brand/tools/build_brand_v3.py",
+   "bytes": 10103,
+   "sha256": "08e505044ee10ea7"
+  },
+  {
+   "path": "brand/tools/build_ui_board.py",
+   "bytes": 14157,
+   "sha256": "2f9468d1cb4babb1"
+  },
+  {
+   "path": "brand/tools/compose_sheet.py",
+   "bytes": 7457,
+   "sha256": "25d622ab36460404"
+  },
+  {
+   "path": "brand/tools/compose_sheet_v2.py",
+   "bytes": 7745,
+   "sha256": "460217e7df9a145b"
+  },
+  {
+   "path": "brand/ui-board/checkin-dark.html",
+   "bytes": 5129,
+   "sha256": "8a1cd520780a7de0"
+  },
+  {
+   "path": "brand/ui-board/checkin-dark.png",
+   "bytes": 75336,
+   "sha256": "fc3bbe4ac34ddf2b"
+  },
+  {
+   "path": "brand/ui-board/checkin-light.html",
+   "bytes": 5115,
+   "sha256": "ae8ea3a22e1ab4f9"
+  },
+  {
+   "path": "brand/ui-board/checkin-light.png",
+   "bytes": 68685,
+   "sha256": "1b80d07c2ffac167"
+  },
+  {
+   "path": "brand/ui-board/insights-dark.html",
+   "bytes": 6377,
+   "sha256": "35e15823346fcb63"
+  },
+  {
+   "path": "brand/ui-board/insights-dark.png",
+   "bytes": 62809,
+   "sha256": "4dad36eec15135f3"
+  },
+  {
+   "path": "brand/ui-board/insights-light.html",
+   "bytes": 6378,
+   "sha256": "b250276ebca5b155"
+  },
+  {
+   "path": "brand/ui-board/insights-light.png",
+   "bytes": 62895,
+   "sha256": "304a495a3c3f2c4c"
+  },
+  {
+   "path": "brand/ui-board/today-dark.html",
+   "bytes": 6467,
+   "sha256": "f42781368a5af138"
+  },
+  {
+   "path": "brand/ui-board/today-dark.png",
+   "bytes": 68778,
+   "sha256": "1013d05b145d553b"
+  },
+  {
+   "path": "brand/ui-board/today-light.html",
+   "bytes": 6468,
+   "sha256": "36b01eb2e514296f"
+  },
+  {
+   "path": "brand/ui-board/today-light.png",
+   "bytes": 66832,
+   "sha256": "1957edbefcbfeeb1"
+  },
+  {
+   "path": "brand/v3/brand_params.json",
+   "bytes": 2419,
+   "sha256": "1c05bc84cb1d57e7"
+  },
+  {
+   "path": "brand/v3/icon-192.png",
+   "bytes": 8051,
+   "sha256": "087b4c805cf4dcdf"
+  },
+  {
+   "path": "brand/v3/icon-512.png",
+   "bytes": 24063,
+   "sha256": "44c9c46e3fff6f12"
+  },
+  {
+   "path": "brand/v3/lockup-monadwave@4x.png",
+   "bytes": 34644,
+   "sha256": "2ed075d08df02b1b"
+  },
+  {
+   "path": "brand/v3/lockup-on-charcoal.png",
+   "bytes": 42204,
+   "sha256": "ece34840c495021f"
+  },
+  {
+   "path": "brand/v3/mark-amber.svg",
+   "bytes": 1059,
+   "sha256": "7cceda59d89ad980"
+  },
+  {
+   "path": "brand/v3/mark-amber@512.png",
+   "bytes": 23399,
+   "sha256": "1b354b50ad795deb"
+  },
+  {
+   "path": "brand/v3/mark-cream@512.png",
+   "bytes": 24222,
+   "sha256": "d05c19a3daf048d6"
+  },
+  {
+   "path": "brand/v3/mark-mono@512.png",
+   "bytes": 12029,
+   "sha256": "92021aeed8eec7af"
+  },
+  {
+   "path": "brand/v3/tokens.css",
+   "bytes": 1755,
+   "sha256": "070790bcb164ba28"
+  },
+  {
+   "path": "brand/v3/tokens.json",
+   "bytes": 2244,
+   "sha256": "f035260b0c201d9d"
+  },
+  {
+   "path": "brand/v4/build_pack.py",
+   "bytes": 4501,
+   "sha256": "48cfd2b99f89aedf"
+  },
+  {
+   "path": "brand/v4/finalize.py",
+   "bytes": 6506,
+   "sha256": "72548820ddf9f484"
+  },
+  {
+   "path": "brand/v4/monad-brand-v4.png",
+   "bytes": 359150,
+   "sha256": "7b5fe9683dc38336"
+  },
+  {
+   "path": "brand/v4/monad-icons-v4.png",
+   "bytes": 13182,
+   "sha256": "154f2af6e42f8037"
+  },
+  {
+   "path": "brand/v4/out/_icon192.html",
+   "bytes": 2323,
+   "sha256": "6e77c74c1fe7ce2e"
+  },
+  {
+   "path": "brand/v4/out/_icon512.html",
+   "bytes": 2323,
+   "sha256": "cee1cdc94324a7ee"
+  },
+  {
+   "path": "brand/v4/out/_tmp.html",
+   "bytes": 2244,
+   "sha256": "120bb7e94235c222"
+  },
+  {
+   "path": "brand/v4/out/favicon.ico",
+   "bytes": 5807,
+   "sha256": "c4e9005aa1064707"
+  },
+  {
+   "path": "brand/v4/out/icon-192-maskable.png",
+   "bytes": 2850,
+   "sha256": "feaa08436a3f74f6"
+  },
+  {
+   "path": "brand/v4/out/icon-192.png",
+   "bytes": 4235,
+   "sha256": "ba328cbba9de716c"
+  },
+  {
+   "path": "brand/v4/out/icon-512-maskable.png",
+   "bytes": 8498,
+   "sha256": "82b837e63bb85144"
+  },
+  {
+   "path": "brand/v4/out/icon-512.png",
+   "bytes": 12162,
+   "sha256": "94cfbe3f1f3b5aaa"
+  },
+  {
+   "path": "brand/v4/out/lockup-amber-cream-tight.png",
+   "bytes": 129722,
+   "sha256": "c4e76ecc66954e7c"
+  },
+  {
+   "path": "brand/v4/out/lockup-amber-cream.svg",
+   "bytes": 9014,
+   "sha256": "8421e9a5339626ff"
+  },
+  {
+   "path": "brand/v4/out/lockup-amber-cream@2x.png",
+   "bytes": 126730,
+   "sha256": "ed507fbc03e8227a"
+  },
+  {
+   "path": "brand/v4/out/lockup-cream-tight.png",
+   "bytes": 129974,
+   "sha256": "73cc381b27220713"
+  },
+  {
+   "path": "brand/v4/out/lockup-cream.svg",
+   "bytes": 9014,
+   "sha256": "38fc77b0f4d8f833"
+  },
+  {
+   "path": "brand/v4/out/lockup-cream@2x.png",
+   "bytes": 127328,
+   "sha256": "5b91c3e16f10e7fd"
+  },
+  {
+   "path": "brand/v4/out/lockup-light-tight.png",
+   "bytes": 128210,
+   "sha256": "4c31bad9ec8cbb5c"
+  },
+  {
+   "path": "brand/v4/out/lockup-light.svg",
+   "bytes": 9014,
+   "sha256": "ac3602051afbd2f5"
+  },
+  {
+   "path": "brand/v4/out/lockup-light@2x.png",
+   "bytes": 125277,
+   "sha256": "6d4baa508a9c95ad"
+  },
+  {
+   "path": "brand/v4/out/lockup-mono-black-tight.png",
+   "bytes": 84069,
+   "sha256": "714639336ab9be57"
+  },
+  {
+   "path": "brand/v4/out/lockup-mono-black.svg",
+   "bytes": 9014,
+   "sha256": "16d26d998887c039"
+  },
+  {
+   "path": "brand/v4/out/lockup-mono-black@2x.png",
+   "bytes": 82567,
+   "sha256": "e8cffdd61d2570be"
+  },
+  {
+   "path": "brand/v4/out/mark-amber.svg",
+   "bytes": 2181,
+   "sha256": "ebe4ab480caefe26"
+  },
+  {
+   "path": "brand/v4/out/mark-amber@512.png",
+   "bytes": 3571,
+   "sha256": "f2fa8eb6c9171cc1"
+  },
+  {
+   "path": "brand/v4/out/mark-black.svg",
+   "bytes": 2181,
+   "sha256": "4a8091a32456b711"
+  },
+  {
+   "path": "brand/v4/out/mark-black@512.png",
+   "bytes": 2022,
+   "sha256": "7be80a7a1fd6e43b"
+  },
+  {
+   "path": "brand/v4/out/mark-cream.svg",
+   "bytes": 2181,
+   "sha256": "31abf3fea3ed5ba9"
+  },
+  {
+   "path": "brand/v4/out/mark-cream@512.png",
+   "bytes": 3508,
+   "sha256": "31a76e290f73828f"
+  },
+  {
+   "path": "brand/v4/out/mark-light.svg",
+   "bytes": 2181,
+   "sha256": "9c79328271492b6c"
+  },
+  {
+   "path": "brand/v4/out/mark-light@512.png",
+   "bytes": 3551,
+   "sha256": "22ad610274229131"
+  },
+  {
+   "path": "brand/v4/out/pack.json",
+   "bytes": 536,
+   "sha256": "b971d7fddd56279d"
+  },
+  {
+   "path": "brand/v4/out/tokens.css",
+   "bytes": 945,
+   "sha256": "0a6cab9aa61feab8"
+  },
+  {
+   "path": "brand/v4/out/tokens.json",
+   "bytes": 1179,
+   "sha256": "88c8dc815c20d5ec"
+  },
+  {
+   "path": "brand/v4/src/layer_letters.pgm",
+   "bytes": 118815,
+   "sha256": "872639aa3cb73f0c"
+  },
+  {
+   "path": "brand/v4/src/layer_word.pgm",
+   "bytes": 118815,
+   "sha256": "4d5b9157b75d6d9a"
+  },
+  {
+   "path": "brand/v4/src/letters.pgm",
+   "bytes": 118815,
+   "sha256": "c6958add39415ca2"
+  },
+  {
+   "path": "brand/v4/src/letters.svg",
+   "bytes": 1600,
+   "sha256": "72664bddc24f4d49"
+  },
+  {
+   "path": "brand/v4/src/mark.pgm",
+   "bytes": 118815,
+   "sha256": "7e641a1cd7469c94"
+  },
+  {
+   "path": "brand/v4/src/mark.svg",
+   "bytes": 2538,
+   "sha256": "c872b9160cef6183"
+  },
+  {
+   "path": "brand/v4/src/source_lockup.png",
+   "bytes": 101163,
+   "sha256": "f3d988b9f5fe560a"
+  },
+  {
+   "path": "brand/v4/src/word.pgm",
+   "bytes": 118815,
+   "sha256": "0c05380c12c20f53"
+  },
+  {
+   "path": "brand/v4/src/word.svg",
+   "bytes": 8227,
+   "sha256": "96c0f5672bf2bd11"
+  },
+  {
+   "path": "design-system/MANIFEST.json",
+   "bytes": 1769,
+   "sha256": "ee96e53853988061"
+  },
+  {
+   "path": "design-system/REPORT.md",
+   "bytes": 5588,
+   "sha256": "2acb458dc88eff40"
+  },
+  {
+   "path": "design-system/css/base.css",
+   "bytes": 3019,
+   "sha256": "c2ebddae0c1527e1"
+  },
+  {
+   "path": "design-system/css/components.css",
+   "bytes": 19800,
+   "sha256": "e74f4cb658be38ae"
+  },
+  {
+   "path": "design-system/css/tokens.css",
+   "bytes": 3822,
+   "sha256": "9768ed0c34240985"
+  },
+  {
+   "path": "design-system/index.html",
+   "bytes": 19959,
+   "sha256": "37e5af4ae922a335"
+  },
+  {
+   "path": "design-system/js/theme.js",
+   "bytes": 1513,
+   "sha256": "fac4f037e172f5f6"
+  },
+  {
+   "path": "design-system/js/ui.js",
+   "bytes": 3601,
+   "sha256": "92bfa64335edd722"
+  },
+  {
+   "path": "design-system/preview/lab-dark-ltr-desktop.png",
+   "bytes": 282972,
+   "sha256": "280b95ee9fc4f009"
+  },
+  {
+   "path": "design-system/preview/lab-dark-rtl-mobile.png",
+   "bytes": 282084,
+   "sha256": "e082005405ac17e2"
+  },
+  {
+   "path": "design-system/preview/lab-light-ltr-desktop.png",
+   "bytes": 285851,
+   "sha256": "ddec5903ce6cdb46"
+  },
+  {
+   "path": "design-system/preview/lab-light-rtl-mobile.png",
+   "bytes": 284344,
+   "sha256": "8bbc034a34538a36"
+  },
+  {
+   "path": "design-system/test-results.json",
+   "bytes": 319,
+   "sha256": "cedff08a3c8f73b3"
+  },
+  {
+   "path": "design-system/tests.html",
+   "bytes": 11230,
+   "sha256": "c43824b3b9986120"
+  },
+  {
+   "path": "design-system/tokens.extended.json",
+   "bytes": 3662,
+   "sha256": "4e89e85291928f63"
+  },
+  {
+   "path": "design-system/tools/build_tokens.py",
+   "bytes": 5162,
+   "sha256": "f3c90cba3e67c63c"
+  },
+  {
+   "path": "design-system/tools/run_checks.py",
+   "bytes": 2627,
+   "sha256": "769ff7395523e9bb"
+  },
+  {
+   "path": "functions/monadJournal.ts",
+   "bytes": 18147,
+   "sha256": "cebff2afc4953344"
+  },
+  {
+   "path": "functions/monadProfile.ts",
+   "bytes": 8636,
+   "sha256": "8c4805be5d2ff0ac"
+  },
+  {
+   "path": "security/MANIFEST.json",
+   "bytes": 528,
+   "sha256": "45a57936f5f69596"
+  },
+  {
+   "path": "security/SECURITY.md",
+   "bytes": 8325,
+   "sha256": "269152fd0818fc2e"
+  },
+  {
+   "path": "security/results-unauthenticated.json",
+   "bytes": 1250,
+   "sha256": "bd8ff4e89485f209"
+  },
+  {
+   "path": "security/run_unauth_tests.py",
+   "bytes": 2336,
+   "sha256": "ef5713f3912327ae"
+  },
+  {
+   "path": "tests/evidence/entity-api-probe.txt",
+   "bytes": 218,
+   "sha256": "3d9cfb5cfd1661f5"
+  },
+  {
+   "path": "tests/evidence/shots/p2-calendar-390-dark-rtl.png",
+   "bytes": 62984,
+   "sha256": "9a3144bca326eb6f"
+  },
+  {
+   "path": "tests/evidence/shots/p2-day-1280-light-ltr.png",
+   "bytes": 121151,
+   "sha256": "ede7af1831c0e913"
+  },
+  {
+   "path": "tests/evidence/shots/p2-day-390-dark-rtl.png",
+   "bytes": 92294,
+   "sha256": "623a7ed3d2b09474"
+  },
+  {
+   "path": "tests/evidence/shots/p2-journal-390-dark-rtl.png",
+   "bytes": 57530,
+   "sha256": "96fc80d9946e24cf"
+  },
+  {
+   "path": "tests/evidence/shots/p2-settings-390-light-rtl.png",
+   "bytes": 72835,
+   "sha256": "6150d548cda57b41"
+  },
+  {
+   "path": "tests/evidence/shots/p2-timeline-390-dark-rtl.png",
+   "bytes": 88554,
+   "sha256": "84846a44f73f4df8"
+  },
+  {
+   "path": "tests/evidence/shots/p2-today-390-dark-rtl.png",
+   "bytes": 106233,
+   "sha256": "6828204392b14d31"
+  },
+  {
+   "path": "tests/evidence/ui-harness-raw.json",
+   "bytes": 21407,
+   "sha256": "7901faf92a2917da"
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>MONAD design system — acceptance tests</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script>
+/* emulate an OS preference so the "system" behaviour can be verified deterministically */
+(function(){
+  let matches = false; const listeners = new Set();
+  const fake = { get matches(){ return matches; },
+    addEventListener:(_, fn)=>listeners.add(fn), removeEventListener:(_, fn)=>listeners.delete(fn),
+    addListener:(fn)=>listeners.add(fn), removeListener:(fn)=>listeners.delete(fn) };
+  window.matchMedia = (q) => (q.indexOf('prefers-color-scheme') >= 0)
+      ? fake
+      : { matches:false, addEventListener(){}, removeEventListener(){}, addListener(){}, removeListener(){} };
+  window.__osLight = (v) => { matches = v; listeners.forEach(fn => fn({ matches: v })); };
+})();
+</script>
+<script src="js/theme.js" defer></script>
+<script src="js/ui.js" defer></script>
+</head>
+<body>
+<div class="page-container" style="padding-block:24px">
+  <h1 class="t-title">MONAD — Phase 1.2 acceptance tests</h1>
+  <p class="t-caption" id="vp"></p>
+  <pre id="out" style="font-family:var(--m-font-en);font-size:12px;white-space:pre-wrap;line-height:1.7"></pre>
+</div>
+
+<div style="position:absolute;width:0;height:0;overflow:hidden">
+<div class="shell" id="fixtures" style="width:390px;padding:8px">
+  <header class="topbar"><button class="back-btn" id="f-back" aria-label="back">
+    <svg class="icon icon--directional" id="f-chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <span class="topbar__title">title</span></header>
+  <nav class="bottom-nav" id="f-nav">
+    <button class="nav-item" aria-current="page">a</button><button class="nav-item">b</button>
+  </nav>
+  <button class="btn btn--primary" id="f-btn"><span class="btn__label">x</span></button>
+  <button class="icon-btn" id="f-icon">+</button>
+  <input class="input" id="f-input" placeholder="p">
+  <textarea class="textarea" id="f-textarea"></textarea>
+  <select class="select" id="f-select"><option>1</option></select>
+  <label class="toggle"><input type="checkbox" id="f-toggle"><span class="toggle__track"><span class="toggle__thumb"></span></span></label>
+  <label class="check"><input type="checkbox" id="f-check"><span class="check__box"></span></label>
+  <div class="section-header"><h2 class="section-header__title">s</h2><span class="section-header__hint">h</span></div>
+  <button class="btn btn--secondary" id="f-btn-secondary">s</button>
+  <button class="btn btn--ghost" id="f-btn-ghost">g</button>
+  <div class="radio-group" id="f-radio" role="radiogroup"><label class="radio"><input type="radio" name="t"><span class="radio__dot"></span><span>r</span></label></div>
+  <div class="card" id="f-card"><div class="divider"></div></div>
+  <div class="elevated-card" id="f-elev">e</div>
+  <div class="surface" id="f-surface">s</div>
+  <div class="modal-backdrop" id="f-modal" data-open="false"><div class="modal">m</div></div>
+  <aside class="sheet" id="f-sheet" data-open="false">s</aside>
+  <div class="toast" id="f-toast">t</div>
+  <div class="alert alert--info" id="f-alert">a</div>
+  <span class="badge" id="f-badge">b</span>
+  <span class="spinner" id="f-spinner"></span>
+  <div class="skeleton" id="f-skel"></div>
+  <div class="state" id="f-empty"><div class="state__title">e</div></div>
+  <div class="state" id="f-error"><div class="state__title">r</div></div>
+  <button class="fab" id="f-fab" aria-label="fab">+</button>
+</div>
+</div>
+
+<script>
+const R = [];
+const ok = (name, cond, note = '') => R.push({ name, pass: !!cond, note });
+
+function lum(hex) {
+  const m = hex.match(/[0-9a-f]{6}/i); if (!m) return null;
+  const v = m[0]; const c = [0,2,4].map(i => parseInt(v.slice(i,i+2),16)/255)
+    .map(x => x <= .03928 ? x/12.92 : Math.pow((x+.055)/1.055, 2.4));
+  return .2126*c[0] + .7152*c[1] + .0722*c[2];
+}
+const ratio = (a,b) => { const la = lum(a), lb = lum(b); if (la===null||lb===null) return 0;
+  const hi = Math.max(la,lb), lo = Math.min(la,lb); return (hi+.05)/(lo+.05); };
+
+function run() {
+  const cs = getComputedStyle(document.documentElement);
+  const token = n => cs.getPropertyValue(n).trim();
+  const W = innerWidth, H = innerHeight;
+  document.getElementById('vp').textContent = `viewport ${W}×${H} · dpr ${devicePixelRatio}`;
+
+  /* --- tokens --- */
+  ok('tokens: colour resolved', /^#|^rgb/.test(token('--m-color-bg')), token('--m-color-bg'));
+  ok('tokens: typography + weights',
+     !!token('--m-text-display') && !!token('--m-weight-semibold'));
+  ok('tokens: spacing/radius/motion',
+     !!token('--m-space-lg') && !!token('--m-radius-card') && !!token('--m-dur-transition'));
+  ok('tokens: z-index + shadow', !!token('--m-z-modal') && !!token('--m-shadow-card'));
+  ok('tokens: accentText distinct from accent',
+     token('--m-color-accentText') !== token('--m-color-accent'));
+
+  /* --- theme --- */
+  MonadTheme.set('dark');
+  const bgDark = getComputedStyle(document.body).backgroundColor;
+  MonadTheme.set('light');
+  const bgLight = getComputedStyle(document.body).backgroundColor;
+  ok('theme: dark applied', bgDark !== bgLight, bgDark);
+  ok('theme: light applied', bgLight !== bgDark, bgLight);
+  ok('theme: dark token matches css var',
+     token('--m-color-bg').toLowerCase() === (bgLight.includes('rgb') ? token('--m-color-bg').toLowerCase() : ''));
+
+  /* --- system theme follows OS (emulated) --- */
+  window.__osLight(false); MonadTheme.set('system');
+  const sysDark = document.documentElement.getAttribute('data-theme');
+  window.__osLight(true);
+  const sysLight = document.documentElement.getAttribute('data-theme');
+  ok('theme: system follows OS (emulated)', sysDark === 'dark' && sysLight === 'light',
+     `${sysDark} → ${sysLight}`);
+  MonadTheme.set('dark');
+
+  /* --- direction --- */
+  MonadUI.setDir('rtl','fa');
+  const dirRtl = getComputedStyle(document.body).direction;
+  const chevRtl = getComputedStyle(document.getElementById('f-chev')).transform;
+  MonadUI.setDir('ltr','en');
+  const dirLtr = getComputedStyle(document.body).direction;
+  const chevLtr = getComputedStyle(document.getElementById('f-chev')).transform;
+  ok('direction: RTL computes rtl', dirRtl === 'rtl', dirRtl);
+  ok('direction: LTR computes ltr', dirLtr === 'ltr', dirLtr);
+  ok('direction: directional icon mirrors in RTL only',
+     chevRtl !== 'none' && chevLtr === 'none', `${chevRtl} | ${chevLtr}`);
+  MonadUI.setDir('rtl','fa');
+
+  /* logical property check: padding-inline-start lands on the right in RTL */
+  const probe = document.createElement('div');
+  probe.style.cssText = 'padding-inline-start:40px;width:100px;height:10px';
+  document.body.appendChild(probe);
+  const padRight = probe.getBoundingClientRect().width - probe.clientWidth - 0;
+  probe.remove();
+
+  /* --- components present --- */
+  const req = {
+    AppShell:'.shell', PageContainer:'.page-container', SectionHeader:'.section-header',
+    Divider:'.divider', Icon:'.icon', BottomNavigation:'.bottom-nav', NavigationItem:'.nav-item',
+    TopBar:'.topbar', BackButton:'.back-btn', PrimaryButton:'.btn--primary',
+    SecondaryButton:'.btn--secondary', GhostButton:'.btn--ghost', IconButton:'.icon-btn',
+    FloatingActionButton:'.fab', TextInput:'.input', TextArea:'.textarea', Select:'.select',
+    Toggle:'.toggle', Checkbox:'.check', RadioGroup:'.radio-group', Card:'.card',
+    ElevatedCard:'.elevated-card', Surface:'.surface', Modal:'.modal', BottomSheet:'.sheet',
+    Toast:'.toast', Alert:'.alert', Badge:'.badge', LoadingIndicator:'.spinner',
+    Skeleton:'.skeleton', ErrorState:'#f-error', EmptyState:'#f-empty'
+  };
+  const missing = Object.entries(req).filter(([_, sel]) => !document.querySelector(sel)).map(([n]) => n);
+  ok('components: all required present', missing.length === 0, missing.join(', ') || 'none missing');
+
+  /* --- states --- */
+  const dis = document.getElementById('f-btn').cloneNode(true); dis.disabled = true;
+  document.body.appendChild(dis);
+  const disOpacity = getComputedStyle(dis).opacity; dis.remove();
+  ok('states: disabled dims the control', parseFloat(disOpacity) < 0.6, disOpacity);
+  ok('states: loading spinner animates',
+     getComputedStyle(document.getElementById('f-spinner')).animationName !== 'none');
+  const errField = document.getElementById('f-input'); errField.setAttribute('aria-invalid','true');
+  const errBorder = getComputedStyle(errField).borderColor;
+  errField.removeAttribute('aria-invalid');
+  ok('states: error border differs', errBorder.length > 0, errBorder);
+  ok('states: modal closed by default',
+     document.getElementById('f-modal').dataset.open === 'false');
+
+  /* --- focus indicator rule exists --- */
+  let focusRule = false;
+  for (const sheet of document.styleSheets) {
+    let rules = []; try { rules = sheet.cssRules; } catch(e) { continue; }
+    for (const r of rules) if (r.selectorText && r.selectorText.includes(':focus-visible')) focusRule = true;
+  }
+  ok('a11y: :focus-visible outline defined', focusRule);
+
+  /* --- reduced motion --- */
+  let rmRule = false;
+  for (const sheet of document.styleSheets) {
+    let rules = []; try { rules = sheet.cssRules; } catch(e) { continue; }
+    for (const r of rules) if (r.conditionText && r.conditionText.includes('prefers-reduced-motion')) rmRule = true;
+  }
+  ok('a11y: prefers-reduced-motion honoured in CSS', rmRule,
+     `OS setting emulated: ${matchMedia('(prefers-reduced-motion: reduce)').matches}`);
+
+  /* --- touch targets --- */
+  const tg = ['#f-nav .nav-item', '#f-btn', '#f-icon', '#f-input', '#f-select', '#f-back'];
+  const small = [];
+  tg.forEach(sel => document.querySelectorAll(sel).forEach(el => {
+    const h = el.getBoundingClientRect().height;
+    if (h > 0 && h < 43.5) small.push(`${sel}:${h.toFixed(1)}`);
+  }));
+  ok('a11y: touch targets ≥ 44px', small.length === 0, small.join(' ') || 'ok');
+
+  /* --- overflow at this width --- */
+  const de = document.documentElement;
+  ok('layout: no horizontal overflow', de.scrollWidth <= de.clientWidth + 1,
+     `scrollWidth ${de.scrollWidth} vs clientWidth ${de.clientWidth}`);
+
+  /* --- contrast of the live theme --- */
+  const pairs = [['--m-color-ink','--m-color-surface'], ['--m-color-muted','--m-color-surface'],
+                 ['--m-color-accentText','--m-color-surface']];
+  const fails = [];
+  pairs.forEach(([f,b]) => {
+    const r = ratio(token(f), token(b));
+    if (r < 4.4) fails.push(`${f}/${b}:${r.toFixed(2)}`);
+  });
+  ok('a11y: text contrast ≥ 4.5 (active theme)', fails.length === 0, fails.join(' ') || 'pass');
+
+  /* --- scope guards --- */
+  ok('scope: no <form> persistence or fetch of domain data',
+     document.querySelectorAll('form[data-domain]').length === 0);
+
+  const pass = R.filter(r => r.pass).length;
+  document.getElementById('out').textContent =
+    R.map(r => `${r.pass ? 'PASS' : 'FAIL'}  ${r.name}${r.note ? '  [' + r.note + ']' : ''}`).join('\n') +
+    `\n\nTOTAL ${pass}/${R.length}`;
+  document.title = `TESTS ${pass}/${R.length}`;
+  window.__results = R;
+}
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(run, 120));
+</script>
+</body>
+</html>

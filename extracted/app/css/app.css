@@ -1,0 +1,87 @@
+/* MONAD app shell — additions only; every value comes from design-system tokens */
+.app-topbar { position: sticky; }
+.app-brand { display: inline-flex; align-items: center; min-height: var(--m-tap-min); }
+.app-brand img { height: 26px; width: auto; }
+#view { min-height: calc(100dvh - 56px - 64px); padding-block: var(--m-space-lg) var(--m-space-2xl); outline: none; }
+#app-nav { position: sticky; }
+
+.auth { max-width: 380px; margin-inline: auto; padding-block: var(--m-space-2xl); }
+.auth__brand { height: 30px; width: auto; margin-block-end: var(--m-space-xl); }
+.auth__title { font-size: var(--m-text-display); font-weight: var(--m-weight-bold); line-height: var(--m-leading-tight); }
+.auth__sub { color: var(--m-color-muted); font-size: var(--m-text-body); margin-block: 6px var(--m-space-xl); }
+.auth__form { display: grid; gap: var(--m-space-lg); }
+.auth__switch { margin-block-start: var(--m-space-lg); font-size: var(--m-text-caption); color: var(--m-color-muted); }
+.auth__switch a { color: var(--m-color-accentText); }
+
+@media (min-width: 600px) {
+  #view { padding-block: var(--m-space-xl) var(--m-space-3xl); }
+  .app-topbar { padding-inline: var(--m-space-xl); }
+}
+@media (min-width: 900px) {
+  #app-nav { max-width: 520px; margin-inline: auto; border-radius: var(--m-radius-card) var(--m-radius-card) 0 0; }
+}
+
+/* ---------- Phase 2: entries, inline forms, calendar ---------- */
+.entry { display: grid; gap: 6px; padding-block: var(--m-space-sm); border-block-end: 1px solid var(--m-color-line); }
+.entry:last-of-type { border-block-end: 0; }
+.entry__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.entry__title { font-weight: var(--m-weight-medium); font-size: var(--m-text-body); }
+.entry__body { font-size: var(--m-text-body); color: var(--m-color-ink); white-space: pre-wrap; }
+.entry__q { font-size: var(--m-text-caption); color: var(--m-color-muted); }
+.entry__actions { display: flex; gap: 6px; }
+.btn--xs { min-height: 32px; padding: 4px 10px; font-size: var(--m-text-caption); }
+
+.inline-form { border: 1px dashed var(--m-color-line-strong); border-radius: var(--m-radius-control); padding: var(--m-space-md); margin-block-end: var(--m-space-md); }
+
+.card--row { display: flex; align-items: center; justify-content: space-between; gap: var(--m-space-md); text-decoration: none; color: inherit; }
+.card--row:hover { border-color: var(--m-color-line-strong); }
+
+.tl-date { margin-block: var(--m-space-md) 4px; font-size: var(--m-text-caption); color: var(--m-color-muted); }
+
+.cal__title { font-size: var(--m-text-title); overflow-wrap: anywhere; font-weight: var(--m-weight-medium); margin-block-end: var(--m-space-md); }
+.cal__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; width: 100%; }
+.cal__cell { position: relative; aspect-ratio: 1; min-width: 0; min-height: 44px; width: 100%; padding: 0;
+  display: grid; place-items: center;
+  border-radius: var(--m-radius-control); border: 1px solid var(--m-color-line);
+  background: var(--m-color-surface); color: var(--m-color-ink); font-size: var(--m-text-caption); }
+.cal__cell--void { border: 0; background: transparent; }
+.cal__cell.is-marked { border-color: var(--m-color-accent); background: var(--m-color-accentSoft); }
+.cal__dot { position: absolute; inset-block-end: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--m-color-accent); }
+.state__action { margin-block-start: var(--m-space-md); }
+
+
+/* ---------- Phase 2.1 fixes: 44px touch targets, calendar fit ---------- */
+.btn--sm, .btn--xs { min-height: 44px; }
+.seg button, .seg > * { min-height: 44px; }
+.cal__grid { box-sizing: border-box; }
+.cal__cell { font-size: var(--m-text-caption); line-height: 1; }
+@media (max-width: 380px) {
+  .cal__grid { gap: 3px; }
+  .cal__dot { inset-block-end: 4px; width: 4px; height: 4px; }
+}
+.card { min-width: 0; }
+.entry, .card--row, .row { min-width: 0; }
+.entry__body, .entry__title, .t-caption { overflow-wrap: anywhere; }
+
+/* [hidden] must always win over component display rules */
+[hidden] { display: none !important; }
+
+/* ---------- Phase 2.5 ---------- */
+.btn--secondary:disabled, .btn--primary:disabled { opacity: .55; }
+#more-wrap { margin-top: var(--m-space-2); }
+.pagination-note { text-align: center; }
+.export-row { display: flex; flex-direction: column; gap: var(--m-space-2); }
+.t-body { line-height: var(--m-leading-relaxed, 1.7); }
+.row--between { display: flex; align-items: center; justify-content: space-between; gap: var(--m-space-2); }
+
+/* ---------- Phase 3: trading ---------- */
+.grid { display: grid; gap: var(--m-space-3); }
+.grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 420px) { .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.badge.positive { color: var(--m-positive, #2E7D5B); border-color: currentColor; }
+.badge.negative { color: var(--m-negative, #B3453C); border-color: currentColor; }
+.badge.neutral { color: var(--m-ink-muted, #A29682); }
+details > summary { cursor: pointer; list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] > summary { margin-bottom: var(--m-space-2); }

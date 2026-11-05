@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><pre id="o">…</pre>
+<script>
+const log=[];const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
+sessionStorage.setItem('monad.test.session',JSON.stringify({user:{id:'test_owner',email:'o@m.local'}}));
+(async()=>{
+ const f=document.createElement('iframe');f.style.width='390px';f.style.height='844px';
+ f.src='/?test=1&fixtures=1&theme=dark&lang=fa';
+ await new Promise(r=>{f.onload=r;document.body.appendChild(f);});
+ const w=f.contentWindow,d=f.contentDocument;
+ w.confirm=()=>true;
+ w.history.pushState({},'','/day/2026-11-09'); w.dispatchEvent(new PopStateEvent('popstate'));
+ await sleep(900);
+ d.querySelector('#note').value='x'; d.querySelector('#save-day').click(); await sleep(700);
+ d.querySelector('[data-add="obs"]').click(); await sleep(250);
+ const form=d.querySelector('.inline-form');
+ log.push('form:'+!!form);
+ if(form){
+   form.querySelector('[name="description"]').value='مشاهده آزمون';
+   form.querySelector('[name="time"]').value='10:15';
+   form.querySelector('button[type="submit"]').click();
+   await sleep(900);
+   const msg=form.querySelector('[data-form-msg]');
+   log.push('formMsg:'+(msg?msg.textContent+'|hidden='+msg.hidden:'none'));
+   log.push('formStill:'+!!d.querySelector('.inline-form'));
+   log.push('entries:'+d.querySelectorAll('[data-sec="obs"] .entry').length);
+   log.push('secHTML:'+d.querySelector('[data-sec="obs"]').innerHTML.replace(/\\s+/g,' ').slice(0,220));
+ }
+ document.getElementById('o').textContent='DBG:'+log.join(' || ');
+ document.title='DONE';
+})().catch(e=>{document.getElementById('o').textContent='DBG:ERR '+e.stack;document.title='DONE';});
+</script>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MONAD UI harness</title>
+<style>body{font:13px monospace;background:#111;color:#eee}pre{white-space:pre-wrap}</style></head>
+<body><pre id="out">RUNNING</pre>
+<script>
+const OUT = document.getElementById('out');
+const results = { metrics: [], flows: [], errors: [] };
+/* same-origin iframes share sessionStorage; seed the routing double for every frame */
+sessionStorage.setItem('monad.test.session', JSON.stringify({ user: { id: 'test_owner', email: 'owner@monad.local' } }));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function frame(w, params) {
+  return new Promise((resolve) => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px';
+    f.style.height = '844px';
+    f.style.border = '0';
+    f.src = '/?test=1&' + params;
+    f.onload = () => resolve(f);
+    document.body.appendChild(f);
+  });
+}
+
+function nav(f, path) {
+  f.contentWindow.history.pushState({}, '', path);
+  f.contentWindow.dispatchEvent(new PopStateEvent('popstate'));
+}
+
+async function metrics(f) {
+  const d = f.contentDocument, w = f.contentWindow;
+  const doc = d.documentElement;
+  const small = [...d.querySelectorAll('button, input, select, textarea, a.btn')]
+    .filter((el) => el.offsetParent !== null && el.offsetHeight > 0 && el.offsetHeight < 44)
+    .map((el) => (el.className || el.tagName) + ':' + el.offsetHeight);
+  return {
+    overflowX: Math.max(0, doc.scrollWidth - doc.clientWidth),
+    smallTargets: small.length,
+    smallSample: [...new Set(small)].slice(0, 4),
+    heading: (d.querySelector('h1')?.textContent || '').trim().slice(0, 40),
+    alerts: [...d.querySelectorAll('.alert--negative')].filter((el) => el.offsetParent !== null).length,
+    alertText: ([...d.querySelectorAll('.alert--negative')].find((el) => el.offsetParent !== null)?.textContent || '').trim().slice(0, 60),
+    dir: doc.getAttribute('dir'),
+    theme: doc.getAttribute('data-theme'),
+    width: w.innerWidth,
+  };
+}
+
+const ROUTES = ['/', '/journal', '/day/2026-11-05', '/timeline', '/calendar', '/trading', '/trading/t1', '/settings'];
+const COMBOS = [];
+for (const w of [360, 390, 412, 768, 1280]) for (const theme of ['dark', 'light']) COMBOS.push({ w, theme, lang: 'fa' });
+for (const w of [360, 1280]) for (const theme of ['dark', 'light']) COMBOS.push({ w, theme, lang: 'en' });
+
+async function sweep() {
+  for (const c of COMBOS) {
+    const f = await frame(c.w, `fixtures=1&theme=${c.theme}&lang=${c.lang}`);
+    await sleep(900);
+    for (const r of ROUTES) {
+      nav(f, r);
+      await sleep(450);
+      const m = await metrics(f);
+      results.metrics.push({ ...m, route: r, combo: `${c.w}-${c.lang}-${c.theme}` });
+    }
+    f.remove();
+  }
+}
+
+async function flows() {
+  const f = await frame(390, 'fixtures=1&theme=dark&lang=fa');
+  const w = f.contentWindow, d = f.contentDocument;
+  w.confirm = () => true;
+  const log = (name, pass, detail) => results.flows.push({ name, pass, detail });
+
+  nav(f, '/day/2026-11-07'); await sleep(600);
+  log('empty day badge', d.querySelector('#day-badge')?.textContent === 'خالی', d.querySelector('#day-badge')?.textContent);
+
+  d.querySelector('#note').value = 'یادداشت آزمون هارنس';
+  d.querySelector('#save-day').click(); await sleep(700);
+  log('save note', d.querySelector('#day-badge')?.textContent === 'ثبت‌شده', d.querySelector('#day-badge')?.textContent);
+
+  d.querySelector('[data-add="obs"]').click(); await sleep(200);
+  const form = d.querySelector('.inline-form');
+  form.querySelector('[name="description"]').value = 'مشاهده آزمون';
+  form.querySelector('[name="time"]').value = '10:15';
+  form.querySelector('button[type="submit"]').click(); await sleep(700);
+  const entries = d.querySelectorAll('[data-sec="obs"] .entry');
+  log('create observation', entries.length === 1, String(entries.length));
+
+  d.querySelector('[data-sec="obs"] [data-edit="obs"]').click(); await sleep(200);
+  const edit = d.querySelector('.inline-form');
+  edit.querySelector('[name="description"]').value = 'مشاهده ویرایش‌شده';
+  edit.querySelector('button[type="submit"]').click(); await sleep(700);
+  log('edit observation', (d.querySelector('[data-sec="obs"] .entry__body')?.textContent || '').includes('ویرایش'), d.querySelector('[data-sec="obs"] .entry__body')?.textContent);
+
+  d.querySelector('[data-sec="obs"] [data-del="obs"]').click(); await sleep(700);
+  log('delete observation', d.querySelectorAll('[data-sec="obs"] .entry').length === 0, String(d.querySelectorAll('[data-sec="obs"] .entry').length));
+
+  d.querySelector('[data-add="reflection"]').click(); await sleep(200);
+  const rf = d.querySelector('.inline-form');
+  rf.querySelector('[name="response"]').value = 'بازنگری مستقل';
+  rf.querySelector('button[type="submit"]').click(); await sleep(700);
+  log('reflection independent of obs delete', d.querySelectorAll('[data-sec="reflection"] .entry').length === 1, String(d.querySelectorAll('[data-sec="reflection"] .entry').length));
+
+  w.location.href = '/day/2026-11-07?test=1&fixtures=1&theme=dark&lang=fa';
+  await sleep(1600);
+  const d2 = f.contentDocument;
+  const noteVal = d2.querySelector('#note')?.value || '';
+  log('persistence after full reload', noteVal.includes('هارنس'), noteVal.slice(0, 34));
+
+  f.remove();
+
+  sessionStorage.removeItem('monad.fixtures.on');
+  const g = await frame(390, 'theme=dark&lang=fa');
+  await sleep(900);
+  g.contentWindow.fetch = () => Promise.reject(new Error('network down'));
+  nav(g, '/timeline'); await sleep(900);
+  const alertText = g.contentDocument.querySelector('.alert--negative')?.textContent || '';
+  results.flows.push({ name: 'network error state', pass: alertText.length > 0, detail: alertText.slice(0, 40) });
+  nav(g, '/calendar'); await sleep(600);
+  const cal = g.contentDocument.querySelectorAll('.cal__cell:not(.cal__cell--void)').length;
+  results.flows.push({ name: 'calendar renders with failed API', pass: cal >= 28, detail: String(cal) });
+  g.remove();
+  sessionStorage.removeItem('monad.fixtures.on');
+}
+
+(async () => {
+  try { await sweep(); await flows(); }
+  catch (e) { results.errors.push(String(e && e.stack || e)); }
+  OUT.textContent = 'RESULT_JSON:' + JSON.stringify(results);
+  document.title = 'DONE';
+})();
+</script></body></html>

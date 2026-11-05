@@ -1,0 +1,5 @@
+<!doctype html><meta charset="utf-8"><script>
+sessionStorage.setItem('monad.test.session', JSON.stringify({user:{id:'test_owner',email:'owner@monad.local'}}));
+const p=new URLSearchParams(location.search);
+location.replace((p.get('to')||'/')+'?test=1&fixtures=1&theme='+(p.get('theme')||'dark')+'&lang='+(p.get('lang')||'fa'));
+</script>

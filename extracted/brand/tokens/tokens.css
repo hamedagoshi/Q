@@ -1,0 +1,54 @@
+/* MONAD / MonadWave — design tokens v2 (single source of truth) */
+:root {
+  --monad-bg: #121316;
+  --monad-surface: #1A1C20;
+  --monad-surface2: #22252A;
+  --monad-glass: rgba(255,255,255,0.06);
+  --monad-glass-border: rgba(255,255,255,0.12);
+  --monad-ink: #F2E9D8;
+  --monad-dim: #A79E8E;
+  --monad-primary: #F26722;
+  --monad-primary-light: #FF8A3D;
+  --monad-primary-deep: #C24E12;
+  --monad-secondary: #F2B33D;
+  --monad-success: #57B87A;
+  --monad-danger: #E5484D;
+  --monad-warn: #F2B33D;
+  --monad-radius-control: 12px;
+  --monad-radius-card: 16px;
+  --monad-radius-sheet: 20px;
+  --monad-radius-modal: 28px;
+  --monad-space: 4px 8px 12px 16px 24px 32px 48px;
+  --monad-blur: 18px;
+  --monad-blur-lg: 24px;
+  --monad-saturate: 140%;
+  --monad-dur-micro: 160ms;
+  --monad-dur-transition: 220ms;
+  --monad-dur-sheet: 280ms;
+  --monad-ease: cubic-bezier(.2,.8,.2,1);
+  --monad-font-fa: 'Vazirmatn', system-ui, sans-serif;
+  --monad-font-en: 'Inter', system-ui, sans-serif;
+  --monad-fs-12: 12px; --monad-fs-14: 14px; --monad-fs-16: 16px;
+  --monad-fs-20: 20px; --monad-fs-28: 28px;
+}
+
+[data-theme="light"] {
+  --monad-bg: #F7F3EA;
+  --monad-surface: #FFFDF8;
+  --monad-surface2: #F0E9DC;
+  --monad-glass: rgba(255,255,255,0.65);
+  --monad-glass-border: rgba(38,30,20,0.10);
+  --monad-ink: #1A1613;
+  --monad-dim: #6B6154;
+  --monad-primary: #D9560F;
+  --monad-primary-light: #F26722;
+  --monad-primary-deep: #A8420B;
+  --monad-secondary: #C98A1E;
+  --monad-success: #3F9A61;
+  --monad-danger: #C93B40;
+  --monad-warn: #C98A1E;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --monad-dur-micro: 1ms; --monad-dur-transition: 1ms; --monad-dur-sheet: 1ms; }
+}

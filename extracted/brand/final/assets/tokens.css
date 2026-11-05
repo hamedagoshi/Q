@@ -1,0 +1,50 @@
+/* MONAD tokens 1.0.0 — authoritative (Phase 1.1 lock) */
+:root {
+  --m-bg: #17181A;
+  --m-surface: #1E1F22;
+  --m-surface2: #26282C;
+  --m-ink: #EDE4D4;
+  --m-muted: #A29682;
+  --m-accent: #C8832A;
+  --m-accentStrong: #E0A24B;
+  --m-line: rgba(237,228,212,0.10);
+  --m-positive: #7FA87F;
+  --m-negative: #C4705F;
+  --m-warning: #C9A227;
+  --m-accentText: #E0A24B;
+}
+[data-theme="light"] {
+  --m-bg: #F5F1E8;
+  --m-surface: #FFFFFF;
+  --m-surface2: #EDE7DA;
+  --m-ink: #1A1917;
+  --m-muted: #6F6656;
+  --m-accent: #A9661E;
+  --m-accentStrong: #C8832A;
+  --m-line: rgba(26,25,23,0.10);
+  --m-positive: #4F7A52;
+  --m-negative: #A14A3C;
+  --m-warning: #8A6D12;
+  --m-accentText: #8C5315;
+  --m-accentStrongText: #9A5B18;
+}
+:root {
+  --m-text-caption: 12px;
+  --m-text-body: 14px;
+  --m-text-lead: 16px;
+  --m-text-title: 20px;
+  --m-text-display: 28px;
+  --m-radius-control: 12px;
+  --m-radius-card: 16px;
+  --m-radius-sheet: 20px;
+  --m-radius-modal: 24px;
+  --m-radius-pill: 999px;
+  --m-dur-micro: 160ms;
+  --m-dur-transition: 220ms;
+  --m-dur-sheet: 280ms;
+  --m-dur-respectReducedMotion: Truems;
+  --m-ease: cubic-bezier(.2,.8,.2,1);
+  --m-font-fa: 'Vazirmatn', system-ui, sans-serif;
+  --m-font-en: 'Inter', system-ui, sans-serif;
+  --m-tabular: tabular-nums;
+}

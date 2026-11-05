@@ -1,0 +1,50 @@
+/* MonadWave / MONAD — design tokens v3 (measured from the logo) */
+:root {
+  --mw-bg: #16171A;
+  --mw-bg-elevated: #1D1E21;
+  --mw-surface: #202123;
+  --mw-surface-alt: #26282C;
+  --mw-line: rgba(255,255,255,0.07);
+  --mw-line-strong: rgba(255,255,255,0.12);
+  --mw-ink: #EDE6D8;
+  --mw-ink-muted: #9C9284;
+  --mw-ink-faint: #6E6659;
+  --mw-accent: #C8832A;
+  --mw-accent-hover: #D89440;
+  --mw-accent-soft: rgba(200,131,42,0.14);
+  --mw-cream: #C9B9A2;
+  --mw-profit: #6E9E7B;
+  --mw-loss: #C2665E;
+  --mw-warn: #C8A24A;
+  --mw-radius-xs: 8px; --mw-radius-sm: 10px; --mw-radius-md: 14px;
+  --mw-radius-lg: 18px; --mw-radius-xl: 24px; --mw-radius-pill: 999px;
+  --mw-space-1: 4px; --mw-space-2: 8px; --mw-space-3: 12px; --mw-space-4: 16px;
+  --mw-space-5: 20px; --mw-space-6: 24px; --mw-space-8: 32px; --mw-space-10: 40px;
+  --mw-fs-display: 34px; --mw-fs-title: 24px; --mw-fs-heading: 18px;
+  --mw-fs-body: 15px; --mw-fs-caption: 13px; --mw-fs-micro: 11px;
+  --mw-font-fa: 'Vazirmatn', system-ui, sans-serif;
+  --mw-font-en: 'Inter', system-ui, sans-serif;
+  --mw-ease: cubic-bezier(0.22,1,0.36,1);
+  --mw-dur-fast: 120ms; --mw-dur-base: 180ms; --mw-dur-slow: 240ms;
+}
+[data-theme="light"] {
+  --mw-bg: #F5F2EB;
+  --mw-bg-elevated: #FFFFFF;
+  --mw-surface: #FFFFFF;
+  --mw-surface-alt: #EFEAE0;
+  --mw-line: rgba(27,26,24,0.09);
+  --mw-line-strong: rgba(27,26,24,0.16);
+  --mw-ink: #1B1A18;
+  --mw-ink-muted: #6B6355;
+  --mw-ink-faint: #9A9080;
+  --mw-accent: #A9661E;
+  --mw-accent-hover: #8E5314;
+  --mw-accent-soft: rgba(169,102,30,0.10);
+  --mw-cream: #7A6A4E;
+  --mw-profit: #4F7F5C;
+  --mw-loss: #A6524B;
+  --mw-warn: #9A7B2C;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --mw-dur-fast: 1ms; --mw-dur-base: 1ms; --mw-dur-slow: 1ms; }
+}

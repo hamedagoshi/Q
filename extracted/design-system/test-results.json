@@ -1,0 +1,27 @@
+{
+ "360x640": {
+  "passed": 23,
+  "total": 23,
+  "fails": []
+ },
+ "390x844": {
+  "passed": 23,
+  "total": 23,
+  "fails": []
+ },
+ "412x915": {
+  "passed": 23,
+  "total": 23,
+  "fails": []
+ },
+ "768x1024": {
+  "passed": 23,
+  "total": 23,
+  "fails": []
+ },
+ "1280x900": {
+  "passed": 23,
+  "total": 23,
+  "fails": []
+ }
+}

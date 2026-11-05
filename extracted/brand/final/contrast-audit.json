@@ -1,0 +1,72 @@
+[
+ {
+  "pair": "dark ink/surface",
+  "ratio": 13.07,
+  "AA_small": true
+ },
+ {
+  "pair": "dark ink/bg",
+  "ratio": 14.09,
+  "AA_small": true
+ },
+ {
+  "pair": "dark muted/surface",
+  "ratio": 5.67,
+  "AA_small": true
+ },
+ {
+  "pair": "dark muted/bg",
+  "ratio": 6.11,
+  "AA_small": true
+ },
+ {
+  "pair": "dark accentText/surface",
+  "ratio": 7.41,
+  "AA_small": true
+ },
+ {
+  "pair": "dark accentText/bg",
+  "ratio": 7.99,
+  "AA_small": true
+ },
+ {
+  "pair": "dark accent(graphic)/bg",
+  "ratio": 5.7,
+  "AA_small": true
+ },
+ {
+  "pair": "light ink/surface",
+  "ratio": 17.57,
+  "AA_small": true
+ },
+ {
+  "pair": "light ink/bg",
+  "ratio": 15.59,
+  "AA_small": true
+ },
+ {
+  "pair": "light muted/surface",
+  "ratio": 5.66,
+  "AA_small": true
+ },
+ {
+  "pair": "light muted/bg",
+  "ratio": 5.02,
+  "AA_small": true
+ },
+ {
+  "pair": "light accentText/surface",
+  "ratio": 6.24,
+  "AA_small": true
+ },
+ {
+  "pair": "light accentText/bg",
+  "ratio": 5.54,
+  "AA_small": true
+ },
+ {
+  "pair": "light accent(graphic)/bg",
+  "ratio": 4.04,
+  "AA_small": false
+ }
+]

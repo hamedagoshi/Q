@@ -1,0 +1,75 @@
+{
+ "target": "https://monad-6c675961.base44.app/functions/monadProfile",
+ "at": "2026-11-05T13:10:54Z",
+ "tests": [
+  {
+   "test": "unauthenticated profile read",
+   "http": 401,
+   "ms": 650,
+   "body": {
+    "ok": false,
+    "code": "unauthenticated"
+   }
+  },
+  {
+   "test": "unauthenticated profile update",
+   "http": 401,
+   "ms": 429,
+   "body": {
+    "ok": false,
+    "code": "unauthenticated"
+   }
+  },
+  {
+   "test": "unauthenticated profile delete",
+   "http": 401,
+   "ms": 444,
+   "body": {
+    "ok": false,
+    "code": "unauthenticated"
+   }
+  },
+  {
+   "test": "invalid session (garbage bearer)",
+   "http": 401,
+   "ms": 293,
+   "body": {
+    "ok": false,
+    "code": "unauthenticated"
+   }
+  },
+  {
+   "test": "expired session (exp in the past)",
+   "http": 401,
+   "ms": 332,
+   "body": {
+    "ok": false,
+    "code": "unauthenticated"
+   }
+  },
+  {
+   "test": "forged bearer with foreign subject",
+   "http": 401,
+   "ms": 324,
+   "body": {
+    "ok": false,
+    "code": "unauthenticated"
+   }
+  },
+  {
+   "test": "wrong method GET",
+   "http": 405,
+   "ms": 255,
+   "body": {
+    "ok": false,
+    "code": "method_not_allowed"
+   }
+  },
+  {
+   "test": "CORS preflight OPTIONS",
+   "http": 200,
+   "ms": 282,
+   "body": "ok"
+  }
+ ]
+}

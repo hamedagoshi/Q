@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MONAD — Design System</title>
+<link rel="icon" href="../brand/final/assets/favicon.ico">
+<script>
+/* screenshot/dev bootstrap: ?theme=dark|light|system&dir=rtl|ltr */
+(function(){try{const p=new URLSearchParams(location.search);
+if(p.get('theme')) localStorage.setItem('monad-theme',p.get('theme'));
+if(p.get('dir')){document.documentElement.setAttribute('dir',p.get('dir'));
+  document.documentElement.setAttribute('lang',p.get('dir')==='ltr'?'en':'fa');}}catch(e){}})();
+</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/theme.js" defer></script>
+<script src="js/ui.js" defer></script>
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<a class="skip" href="#main">پرش به محتوا</a>
+
+<div class="lab-bar" role="toolbar" aria-label="Design system controls">
+  <strong style="font-size:13px;letter-spacing:.22em">MONAD</strong>
+  <span class="badge">design system 1.2.0</span>
+  <div class="seg" role="group" aria-label="Theme">
+    <button data-theme-mode-btn="dark">Dark</button>
+    <button data-theme-mode-btn="light">Light</button>
+    <button data-theme-mode-btn="system">System</button>
+  </div>
+  <div class="seg" role="group" aria-label="Direction">
+    <button data-dir-btn="rtl" data-lang="fa">فارسی RTL</button>
+    <button data-dir-btn="ltr" data-lang="en">English LTR</button>
+  </div>
+  <span class="badge" id="mode-readout">—</span>
+</div>
+
+<main id="main" class="page-container">
+
+  <header class="lab-section" style="border:0">
+    <img src="../brand/final/raster/lockup-horizontal-dark.png" alt="MONAD" style="height:44px;width:auto" id="brand-lockup">
+    <p class="muted" style="margin-top:10px;font-size:var(--m-text-caption)">
+      Component laboratory. Reference content is sample text, not user data. No domain entities exist in this phase.
+    </p>
+  </header>
+
+  <!-- 1 colour -->
+  <section class="lab-section" id="colour">
+    <div class="section-header"><h2 class="section-header__title">۰۱ — Color tokens</h2><span class="section-header__hint">single source: tokens.json</span></div>
+    <div class="lab-grid" id="swatches"></div>
+  </section>
+
+  <!-- 2 typography -->
+  <section class="lab-section" id="type">
+    <div class="section-header"><h2 class="section-header__title">۰۲ — Typography</h2><span class="section-header__hint">Vazirmatn · Inter · tabular numerals</span></div>
+    <div class="card stack">
+      <p class="t-display">امروز چه دیدی؟</p>
+      <p class="t-title">What did you observe today?</p>
+      <p class="t-lead">هر روز، یک مشاهده</p>
+      <p class="t-body">Observe. Record. Understand. — body 14، خط پایه ۱.۷۵ برای متن فارسی.</p>
+      <p class="t-caption num">1,240.50 · +2.14٪ · −0.42R · ۱۴۰۵/۰۸/۱۴</p>
+      <div class="hair"></div>
+      <div class="row" style="flex-wrap:wrap;gap:var(--m-space-lg)">
+        <span style="font-weight:400">Regular 400</span>
+        <span style="font-weight:500">Medium 500</span>
+        <span style="font-weight:600">Semibold 600</span>
+        <span style="font-weight:700">Bold 700</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 spacing + radius -->
+  <section class="lab-section" id="space">
+    <div class="section-header"><h2 class="section-header__title">۰۳ — Spacing &amp; radius</h2></div>
+    <div class="lab-grid">
+      <div class="card" id="space-specimen"></div>
+      <div class="card" id="radius-specimen"></div>
+    </div>
+  </section>
+
+  <!-- 4 foundation -->
+  <section class="lab-section" id="foundation">
+    <div class="section-header"><h2 class="section-header__title">۰۴ — Foundation</h2><span class="section-header__hint">AppShell · PageContainer · SectionHeader · Divider · Icon</span></div>
+    <div class="card stack">
+      <div class="row"><span>Icon wrapper</span>
+        <span style="display:flex;gap:14px;color:var(--m-color-accentText)">
+          <svg class="icon" data-testid="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+          <svg class="icon icon--directional" data-testid="icon-directional" viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6"/></svg>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 18V6M4 18h16"/></svg>
+        </span>
+      </div>
+      <p class="t-caption">The chevron is marked directional and mirrors in RTL; the chart and circle do not.</p>
+      <div class="divider"></div>
+      <div class="row"><span class="muted">Divider</span><span class="badge">hairline</span></div>
+    </div>
+  </section>
+
+  <!-- 5 navigation -->
+  <section class="lab-section" id="nav">
+    <div class="section-header"><h2 class="section-header__title">۰۵ — Navigation</h2></div>
+    <div class="frame" style="max-width:390px;margin-inline:auto">
+      <div class="frame__label">mobile shell · 390px</div>
+      <header class="topbar">
+        <button class="back-btn" aria-label="بازگشت"><svg class="icon icon--directional" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <span class="topbar__title">ژورنال</span>
+        <span class="topbar__spacer"></span>
+        <span class="num muted" style="font-size:12px">۱۵ آبان</span>
+      </header>
+      <div style="padding:var(--m-space-lg);min-height:120px">
+        <p class="t-caption">TopBar · BackButton — sticky, hairline edge.</p>
+      </div>
+      <nav class="bottom-nav" aria-label="ناوبری اصلی">
+        <button class="nav-item" aria-current="page"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>امروز</button>
+        <button class="nav-item"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"/></svg>ژورنال</button>
+        <button class="nav-item"><svg class="icon" viewBox="0 0 24 24"><path d="M4 16l4-5 4 3 4-7 4 9"/></svg>معاملات</button>
+        <button class="nav-item"><svg class="icon" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>خط</button>
+        <button class="nav-item"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>تنظیمات</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 6 actions -->
+  <section class="lab-section" id="actions">
+    <div class="section-header"><h2 class="section-header__title">۰۶ — Actions</h2><span class="section-header__hint">default · press · focus · disabled · loading</span></div>
+    <div class="card stack">
+      <div class="row" style="flex-wrap:wrap;gap:var(--m-space-sm)">
+        <button class="btn btn--primary" data-testid="btn-primary"><span class="btn__label">ثبت</span></button>
+        <button class="btn btn--secondary">پیش‌نویس</button>
+        <button class="btn btn--ghost">انصراف</button>
+        <button class="btn btn--danger btn--sm">حذف</button>
+      </div>
+      <div class="row" style="flex-wrap:wrap;gap:var(--m-space-sm)">
+        <button class="btn btn--primary" disabled>غیرفعال</button>
+        <button class="btn btn--primary" data-loading-demo><span class="btn__label">بارگذاری</span></button>
+        <button class="btn btn--secondary" aria-busy="true" disabled><span class="btn__spinner"></span>در حال ارسال</button>
+        <button class="btn btn--primary" data-toast="ذخیره شد" data-tone="ok">نمایش Toast</button>
+      </div>
+      <div class="hair"></div>
+      <div class="row" style="gap:var(--m-space-sm);justify-content:flex-start">
+        <button class="icon-btn" aria-label="افزودن"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button class="icon-btn icon-btn--solid" aria-label="تنظیمات"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg></button>
+        <span class="t-caption">IconButton · tap target 44px</span>
+      </div>
+    </div>
+    <button class="fab" aria-label="ثبت سریع" data-toast="ثبت سریع" data-tone="info" style="position:static;margin-top:var(--m-space-md)">
+      <svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px;stroke-width:2"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </section>
+
+  <!-- 7 data entry -->
+  <section class="lab-section" id="entry">
+    <div class="section-header"><h2 class="section-header__title">۰۷ — Data entry</h2></div>
+    <div class="lab-grid">
+      <div class="card stack">
+        <div class="field"><label class="field__label" for="f1">عنوان</label>
+          <input class="input" id="f1" data-testid="input" placeholder="مثلاً: صبح آرام">
+          <span class="field__hint">متن راهنما</span></div>
+        <div class="field"><label class="field__label" for="f2">با خطا</label>
+          <input class="input" id="f2" aria-invalid="true" value="مقدار نامعتبر">
+          <span class="field__error">این فیلد را بررسی کن</span></div>
+        <div class="field"><label class="field__label" for="f3">غیرفعال</label>
+          <input class="input" id="f3" disabled value="—"></div>
+        <div class="field"><label class="field__label" for="f4">یادداشت</label>
+          <textarea class="textarea" id="f4" placeholder="چند خط…"></textarea></div>
+      </div>
+      <div class="card stack">
+        <div class="field"><label class="field__label" for="f5">انتخاب</label>
+          <select class="select" id="f5"><option>ژورنال</option><option>معاملات</option><option>خط</option></select></div>
+        <div class="field"><label class="field__label" for="f6">تاریخ</label>
+          <div class="date-field"><input class="input" id="f6" type="date" value="2026-11-05">
+            <span class="date-field__icon"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span></div></div>
+        <label class="toggle"><input type="checkbox" checked><span class="toggle__track"><span class="toggle__thumb"></span></span><span>یادآوری روزانه</span></label>
+        <label class="check"><input type="checkbox" checked><span class="check__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M5 12l5 5 9-10"/></svg></span><span>پذیرفتن</span></label>
+        <div class="radio-group" role="radiogroup" aria-label="نوع">
+          <label class="radio"><input type="radio" name="r" checked><span class="radio__dot"></span><span>خواب</span></label>
+          <label class="radio"><input type="radio" name="r"><span class="radio__dot"></span><span>حال</span></label>
+          <label class="radio"><input type="radio" name="r" disabled><span class="radio__dot"></span><span>غیرفعال</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 surfaces -->
+  <section class="lab-section" id="surfaces">
+    <div class="section-header"><h2 class="section-header__title">۰۸ — Surfaces</h2></div>
+    <div class="lab-grid">
+      <div class="card"><div class="t-caption">Card</div><p style="margin-top:6px">سطح پایه با hairline.</p></div>
+      <div class="elevated-card"><div class="t-caption">ElevatedCard</div><p style="margin-top:6px">سایه ملایم، بدون درخشش.</p></div>
+      <div class="surface"><div class="t-caption">Surface</div><p style="margin-top:6px">درون‌کارت.</p></div>
+      <div class="card card--interactive"><div class="t-caption">Card interactive</div><p style="margin-top:6px">hover · press</p></div>
+    </div>
+    <div class="row" style="justify-content:flex-start;gap:var(--m-space-sm);margin-top:var(--m-space-md)">
+      <button class="btn btn--secondary" data-open-layer="demo-modal">Modal</button>
+      <button class="btn btn--secondary" data-open-layer="demo-sheet">BottomSheet</button>
+    </div>
+  </section>
+
+  <!-- 9 feedback -->
+  <section class="lab-section" id="feedback">
+    <div class="section-header"><h2 class="section-header__title">۰۹ — Feedback</h2></div>
+    <div class="lab-grid">
+      <div class="stack">
+        <div class="alert"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg><span>Alert پیش‌فرض</span></div>
+        <div class="alert alert--info"><span>Alert اطلاع</span></div>
+        <div class="alert alert--negative"><span>Alert خطا</span></div>
+        <div class="alert alert--positive"><span>Alert موفق</span></div>
+      </div>
+      <div class="stack">
+        <div class="row" style="justify-content:flex-start;gap:8px"><span class="badge">default</span><span class="badge badge--accent">accent</span><span class="badge badge--negative">negative</span></div>
+        <div class="row" style="justify-content:flex-start;gap:14px"><span class="spinner" role="status" aria-label="بارگذاری"></span><span class="spinner spinner--sm"></span><span class="t-caption">LoadingIndicator</span></div>
+        <div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--text"></div><div class="skeleton skeleton--text" style="width:80%"></div></div>
+      </div>
+    </div>
+    <div class="lab-grid" style="margin-top:var(--m-space-md)">
+      <div class="card">
+        <div class="state"><div class="state__icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M4 11h16"/></svg></div>
+          <div class="state__title">هنوز چیزی ثبت نشده</div>
+          <div class="state__body">اولین مشاهده‌ات را ثبت کن؛ هر وقت خواستی.</div>
+          <button class="btn btn--primary btn--sm state__action">ثبت مشاهده</button></div>
+      </div>
+      <div class="card">
+        <div class="state"><div class="state__icon" style="color:var(--m-color-negative)"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h.01"/></svg></div>
+          <div class="state__title">بارگذاری نشد</div>
+          <div class="state__body">اتصال برقرار نشد. دوباره تلاش کن.</div>
+          <button class="btn btn--secondary btn--sm state__action">تلاش دوباره</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 responsive -->
+  <section class="lab-section" id="responsive">
+    <div class="section-header"><h2 class="section-header__title">۱۰ — Responsive</h2><span class="section-header__hint">360 · 390 · 600 · desktop</span></div>
+    <div class="lab-grid">
+      <div class="frame" style="max-width:360px"><div class="frame__label">360px</div><div style="padding:var(--m-space-md)"><div class="card"><p class="t-caption">کارت در عرض کوچک</p><p style="margin-top:4px;font-size:13px">بدون سرریز افقی.</p></div></div></div>
+      <div class="frame frame--tablet"><div class="frame__label">600px · tablet</div><div style="padding:var(--m-space-md)"><div class="lab-grid"><div class="card"><p class="t-caption">ستون ۱</p></div><div class="card"><p class="t-caption">ستون ۲</p></div></div></div></div>
+      <div class="frame"><div class="frame__label">desktop · grid auto-fit</div><div style="padding:var(--m-space-md)"><div class="lab-grid"><div class="card"><p class="t-caption">A</p></div><div class="card"><p class="t-caption">B</p></div><div class="card"><p class="t-caption">C</p></div></div></div></div>
+    </div>
+  </section>
+
+  <footer class="lab-section" style="border:0;padding-block-end:var(--m-space-3xl)">
+    <p class="t-caption">MONAD design system · phase 1.2 · tokens 1.2.0 · no domain entities, no data persistence.</p>
+  </footer>
+</main>
+
+<!-- modal -->
+<div class="modal-backdrop" id="demo-modal" data-open="false" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="m-title" data-close-backdrop>
+  <div class="modal">
+    <h2 class="modal__title" id="m-title">ذخیره‌ی پیش‌نویس؟</h2>
+    <p class="muted t-body">پیش‌نویس فقط روی همین دستگاه می‌ماند.</p>
+    <div class="modal__actions">
+      <button class="btn btn--ghost" data-close-layer="demo-modal">انصراف</button>
+      <button class="btn btn--primary" data-close-layer="demo-modal" data-toast="ذخیره شد">ذخیره</button>
+    </div>
+  </div>
+</div>
+
+<!-- bottom sheet -->
+<div class="sheet-backdrop" id="demo-sheet-backdrop" data-open="false" aria-hidden="true" data-close-backdrop></div>
+<aside class="sheet" id="demo-sheet" data-open="false" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="s-title">
+  <div class="sheet__grabber"></div>
+  <h2 class="sheet__title" id="s-title">BottomSheet</h2>
+  <p class="muted t-body">برای انتخاب‌های کوتاه؛ با Escape یا لمس بیرون بسته می‌شود.</p>
+  <div style="display:grid;gap:8px;margin-top:var(--m-space-lg)">
+    <button class="btn btn--secondary btn--block" data-close-layer="demo-sheet">گزینه اول</button>
+    <button class="btn btn--ghost btn--block" data-close-layer="demo-sheet">بستن</button>
+  </div>
+</aside>
+
+<script>
+/* keep the sheet backdrop in sync with the sheet */
+document.addEventListener('click', (e) => {
+  const o = e.target.closest('[data-open-layer="demo-sheet"]');
+  if (o) document.getElementById('demo-sheet-backdrop').dataset.open = 'true';
+  const c = e.target.closest('[data-close-layer="demo-sheet"]');
+  if (c) document.getElementById('demo-sheet-backdrop').dataset.open = 'false';
+});
+
+/* readout + generated specimens (values read from the live token stylesheet) */
+document.addEventListener('DOMContentLoaded', () => {
+  const cs = getComputedStyle(document.documentElement);
+  const t = (n) => cs.getPropertyValue(n).trim();
+  const readout = document.getElementById('mode-readout');
+  const paint = () => {
+    readout.textContent = MonadTheme.mode + ' → ' + MonadTheme.resolved;
+    document.getElementById('brand-lockup').src =
+      MonadTheme.resolved === 'light'
+        ? '../brand/final/raster/lockup-horizontal-light.png'
+        : '../brand/final/raster/lockup-horizontal-dark.png';
+  };
+  document.addEventListener('monad:theme', paint); paint();
+
+  const names = ['bg','surface','surface2','ink','muted','accent','accentText','accentStrong','line','positive','negative','warning'];
+  document.getElementById('swatches').innerHTML = names.map(n => {
+    const v = t('--m-color-' + n);
+    return `<div class="swatch"><div class="swatch__chip" style="background:${v}"></div>
+      <div class="swatch__meta"><b>${n}</b><br>${v}</div></div>`;
+  }).join('');
+
+  const spaces = ['xs','sm','md','lg','xl','2xl','3xl'];
+  document.getElementById('space-specimen').innerHTML =
+    '<div class="t-caption" style="margin-bottom:10px">Spacing</div>' +
+    spaces.map(s => `<div class="row" style="justify-content:flex-start;gap:10px;margin-bottom:6px">
+      <span class="t-caption" style="width:34px">${s}</span>
+      <span style="height:10px;border-radius:3px;background:var(--m-color-accent);width:${t('--m-space-'+s)}"></span>
+      <span class="t-caption num">${t('--m-space-'+s)}</span></div>`).join('');
+
+  const radii = ['control','card','sheet','modal','pill'];
+  document.getElementById('radius-specimen').innerHTML =
+    '<div class="t-caption" style="margin-bottom:10px">Radius</div>' +
+    radii.map(r => `<div class="row" style="justify-content:flex-start;gap:10px;margin-bottom:6px">
+      <span class="t-caption" style="width:52px">${r}</span>
+      <span style="width:44px;height:26px;background:var(--m-color-surface2);border:1px solid var(--m-color-line);border-radius:${t('--m-radius-'+r)}"></span>
+      <span class="t-caption num">${t('--m-radius-'+r)}</span></div>`).join('');
+});
+</script>
+</body>
+</html>

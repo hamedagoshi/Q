@@ -1,0 +1,90 @@
+<!doctype html><meta charset="utf-8"><pre id="out">RUNNING</pre>
+<script type="module">
+const out = [];
+try {
+const ok = (name, pass, detail = '') => out.push({ name, pass, detail });
+sessionStorage.setItem('monad.test.session', JSON.stringify({ user: { id: 'test_owner', email: 'o@m.local' } }));
+sessionStorage.setItem('monad.profile', JSON.stringify({ language: 'fa', timezone: 'Asia/Tehran', theme: 'dark' }));
+const { toIso } = await import('/app/js/api.js');
+
+ok('tz Tehran 10:15 -> 06:45Z', toIso('2026-11-12', '10:15', 'Asia/Tehran') === '2026-11-12T06:45:00.000Z', toIso('2026-11-12', '10:15', 'Asia/Tehran'));
+ok('tz London summer (BST)', toIso('2026-07-01', '10:15', 'Europe/London') === '2026-07-01T09:15:00.000Z', toIso('2026-07-01', '10:15', 'Europe/London'));
+ok('tz London winter (GMT)', toIso('2026-01-15', '10:15', 'Europe/London') === '2026-01-15T10:15:00.000Z', toIso('2026-01-15', '10:15', 'Europe/London'));
+ok('tz half-hour offset (Kolkata)', toIso('2026-11-12', '10:15', 'Asia/Kolkata') === '2026-11-12T04:45:00.000Z', toIso('2026-11-12', '10:15', 'Asia/Kolkata'));
+ok('invalid time -> null', toIso('2026-11-12', '99:99', 'Asia/Tehran') === null);
+
+const f = document.createElement('iframe');
+f.style.width = '390px'; f.style.height = '900px';
+f.src = '/?test=1&fixtures=1&theme=dark&lang=fa';
+await new Promise((r) => { f.onload = r; document.body.appendChild(f); });
+const w = f.contentWindow; const d = f.contentDocument;
+const go = async (p) => { w.history.pushState({}, '', p); w.dispatchEvent(new PopStateEvent('popstate')); await new Promise((r) => setTimeout(r, 800)); };
+
+await go('/day/2026-11-05');
+ok('day page lists that day trades', d.querySelectorAll('#day-trades a[data-trade]').length === 3, String(d.querySelectorAll('#day-trades a[data-trade]').length));
+ok('day page shows the trade count', /3/.test(d.querySelector('#day-trades')?.previousElementSibling?.textContent || ''));
+ok('day page offers the five review prompts', d.querySelectorAll('#review textarea').length === 5, String(d.querySelectorAll('#review textarea').length));
+const tradeHref = d.querySelector('#day-trades a[data-trade]')?.getAttribute('href') || '';
+ok('a trade card opens the trade detail', /^\/trading\//.test(tradeHref), tradeHref);
+
+await go('/day/2026-11-20');
+ok('a day without trades shows its empty state', /معامله‌ای ثبت نشده|No trades recorded/.test(d.querySelector('#day-trades')?.textContent || ''));
+
+await go('/journal');
+ok('journal exposes an explicit paging note', Boolean(d.querySelector('#more-note')), (d.querySelector('#more-note')?.textContent || '').trim().slice(0, 60));
+ok('journal counter states the truth about the range', /تمام تاریخچه|whole range|روز بارگذاری/.test(d.querySelector('#more-note')?.textContent || ''));
+ok('journal has a load-older control', Boolean(d.querySelector('#more')));
+
+await go('/settings');
+ok('settings offers JSON backup', Boolean(d.querySelector('#export')));
+/* headless cannot save a download, so the anchor and blob are neutralised and the
+   handler's own reporting is asserted; the file write itself is NOT EXECUTED here */
+w.URL.createObjectURL = () => 'blob:stub';
+w.URL.revokeObjectURL = () => {};
+w.HTMLAnchorElement.prototype.click = function () { this.dataset.stubbed = '1'; };
+d.querySelector('#export').click();
+await new Promise((r) => setTimeout(r, 1200));
+const msgText = (d.querySelector('#export-msg')?.textContent || '').trim();
+ok('backup handler reports what the file contains', msgText.length > 5, msgText.slice(0, 80) || 'empty');
+
+await go('/trading');
+const tradingText = (d.querySelector('main')?.textContent || '').replace(/\s+/g, ' ');
+ok('trading account renders from imported meta', /51234567/.test(tradingText));
+ok('trade list renders imported rows', d.querySelectorAll('#trades a[data-link]').length === 4, String(d.querySelectorAll('#trades a[data-link]').length));
+ok('filters exist for account, symbol and dates', Boolean(d.querySelector('#f-account') && d.querySelector('#f-symbol') && d.querySelector('#f-from') && d.querySelector('#f-to')));
+ok('import control exists', Boolean(d.querySelector('#file')));
+ok('import history states status and rejected reason', /completed_with_errors/.test(tradingText) && /sym is required/.test(tradingText));
+ok('no invented analytics on the trades screen', !/نرخ برد|win rate|profit factor|expectancy/.test(tradingText));
+
+await go('/trading/t1');
+const detailText = (d.querySelector('main')?.textContent || '').replace(/\s+/g, ' ');
+ok('trade detail shows the EA numbers', /2650\.25/.test(detailText) && /2\.41R/.test(detailText));
+const slots = (detailText.match(/(Entry|ورود|Exit|خروج) · (H1|M15|M1)/g) || []).length;
+ok('trade detail shows all six image slots', slots === 6, `slots=${slots}`);
+ok('trade detail marks missing screenshots', /not captured|ثبت نشده/.test(detailText));
+ok('trade detail exposes the raw source record', Boolean(d.querySelector('details pre')));
+ok('trade detail links to the day', Boolean(d.querySelector('a[href="/day/2026-11-05"]')));
+ok('EA note is separate from the user note', Boolean(d.querySelector('#ea-note')) && !d.querySelector('#ea-note textarea'));
+ok('user note is the only editable one', Boolean(d.querySelector('#note')) && d.querySelector('#note').tagName === 'TEXTAREA');
+ok('reference paths are not presented as images', d.querySelectorAll('#trade img').length === 0, String(d.querySelectorAll('#trade img').length));
+d.querySelector('#save-note').click();
+await new Promise((r) => setTimeout(r, 400));
+ok('note save round-trips', /Saved|ذخیره شد/.test(d.querySelector('#note-msg')?.textContent || ''));
+
+await go('/insights');
+ok('insights route says it is not built', /ساخته نشده|not built/.test((d.querySelector('main')?.textContent || '')));
+
+await go('/');
+ok('bottom nav no longer advertises an empty section', d.querySelectorAll('#app-nav [data-nav]').length === 4, String(d.querySelectorAll('#app-nav [data-nav]').length));
+ok('nav items still reachable', ['/', '/journal', '/timeline', '/settings'].every((p) => d.querySelector(`#app-nav [data-nav="${p}"]`)));
+
+await go('/day/2026-11-05');
+const dayText = (d.querySelector('main')?.textContent || '');
+ok('intensity is not presented as a score', !/\/5/.test(dayText), dayText.match(/.{0,20}\/5.{0,20}/)?.[0] || 'no "/5"');
+
+document.getElementById('out').textContent = 'RESULT_JSON:' + JSON.stringify({ checks: out, passed: out.filter((c) => c.pass).length, total: out.length });
+document.title = 'DONE';
+} catch (e) {
+  document.getElementById('out').textContent = 'RESULT_JSON:' + JSON.stringify({ checks: out, passed: out.filter((c) => c.pass).length, total: out.length, error: String(e && e.stack || e) });
+}
+</script>

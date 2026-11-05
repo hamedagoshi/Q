@@ -1,0 +1,8 @@
+MONAD build 0.4.0 (Phase 4 daily experience)
+built_at_utc=2026-11-05T17:15:00Z
+deployed_functions=monadProfile,monadJournal,monadTrade
+entities=UserProfile,DailyRecord,StateObservation,LifeEvent,TradingSession,Reflection,TradingAccount,Trade,TradeImage,Strategy,ImportJob
+regression_ui=112/112 combinations clean
+ui_assertions=33/34 (1 NOT EXECUTED: headless download)
+phase4_tests=PASS 15/15
+imgs_contract=PASS (absent key preserves, declared slot updates)

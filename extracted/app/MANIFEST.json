@@ -1,0 +1,157 @@
+{
+ "phase": "1.3",
+ "entity": "UserProfile",
+ "function": "monadProfile",
+ "files": [
+  {
+   "path": "app/REPORT.md",
+   "bytes": 7886,
+   "sha256": "e40722887ffc781f"
+  },
+  {
+   "path": "app/css/app.css",
+   "bytes": 1328,
+   "sha256": "5f8c98c52c4afa6d"
+  },
+  {
+   "path": "app/index.html",
+   "bytes": 1185,
+   "sha256": "65d85c5af4689f4d"
+  },
+  {
+   "path": "app/js/api.js",
+   "bytes": 843,
+   "sha256": "7962889d6f8151f3"
+  },
+  {
+   "path": "app/js/app.js",
+   "bytes": 6591,
+   "sha256": "9db82770cf458c22"
+  },
+  {
+   "path": "app/js/auth.js",
+   "bytes": 3202,
+   "sha256": "1b1e567a104b3015"
+  },
+  {
+   "path": "app/js/pages/auth.js",
+   "bytes": 4340,
+   "sha256": "ece8b8a4ea33b72c"
+  },
+  {
+   "path": "app/js/pages/calendar.js",
+   "bytes": 332,
+   "sha256": "7432aec1c4c020ca"
+  },
+  {
+   "path": "app/js/pages/home.js",
+   "bytes": 1531,
+   "sha256": "ac970a7ff9210c04"
+  },
+  {
+   "path": "app/js/pages/insights.js",
+   "bytes": 329,
+   "sha256": "e0a754c760e6c2a7"
+  },
+  {
+   "path": "app/js/pages/journal.js",
+   "bytes": 372,
+   "sha256": "41c209a2594770ba"
+  },
+  {
+   "path": "app/js/pages/notfound.js",
+   "bytes": 488,
+   "sha256": "baa1d8cedbaa5544"
+  },
+  {
+   "path": "app/js/pages/placeholder.js",
+   "bytes": 505,
+   "sha256": "d669655e7c8d4a55"
+  },
+  {
+   "path": "app/js/pages/settings.js",
+   "bytes": 4674,
+   "sha256": "1816fb07b1155f96"
+  },
+  {
+   "path": "app/js/pages/timeline.js",
+   "bytes": 331,
+   "sha256": "a1585c842ac95261"
+  },
+  {
+   "path": "app/js/pages/trading.js",
+   "bytes": 336,
+   "sha256": "b2b334c5742414e9"
+  },
+  {
+   "path": "app/js/router.js",
+   "bytes": 1793,
+   "sha256": "79f437898c59ab16"
+  },
+  {
+   "path": "app/manifest.webmanifest",
+   "bytes": 615,
+   "sha256": "6482d8a001f82eff"
+  },
+  {
+   "path": "app/preview/board-phase13.png",
+   "bytes": 265508,
+   "sha256": "a5648d08e1a710da"
+  },
+  {
+   "path": "app/preview/home-dark-rtl.png",
+   "bytes": 66237,
+   "sha256": "276f7f3fc3659b77"
+  },
+  {
+   "path": "app/preview/login-dark-rtl.png",
+   "bytes": 64533,
+   "sha256": "92c8233a19a34e72"
+  },
+  {
+   "path": "app/preview/notfound-dark-rtl.png",
+   "bytes": 46716,
+   "sha256": "6ebdf49c04a9e4c0"
+  },
+  {
+   "path": "app/preview/settings-dark-rtl.png",
+   "bytes": 72510,
+   "sha256": "3727e4c8a23a1afc"
+  },
+  {
+   "path": "app/preview/settings-light-ltr.png",
+   "bytes": 72766,
+   "sha256": "041672a6f3dd5d81"
+  },
+  {
+   "path": "app/preview/signup-light-ltr.png",
+   "bytes": 67808,
+   "sha256": "4387688fc41fd8d0"
+  },
+  {
+   "path": "app/tests/app-tests.html",
+   "bytes": 4862,
+   "sha256": "845084c602f456f0"
+  },
+  {
+   "path": "app/tests/probe.html",
+   "bytes": 535,
+   "sha256": "628ea8b78be21f06"
+  },
+  {
+   "path": "app/tests/seed.html",
+   "bytes": 595,
+   "sha256": "48c49aaa5e70b644"
+  },
+  {
+   "path": "app/tools_serve.py",
+   "bytes": 1370,
+   "sha256": "adde4650c6fc5c7d"
+  },
+  {
+   "path": "functions/monadProfile.ts",
+   "bytes": 6270,
+   "sha256": "d02a6cf9fd75ac57"
+  }
+ ]
+}
